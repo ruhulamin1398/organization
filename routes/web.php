@@ -19,6 +19,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::get('/', function () {
         return view('welcome');
     });
+    // Dashboard Controller
     Route::get('dashboard', [HomeController::class, 'index']) -> name('dashboard');
 });
 
