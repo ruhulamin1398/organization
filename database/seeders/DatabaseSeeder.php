@@ -2,7 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Campus;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,5 +17,92 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+
+        // Campus Seeder
+        DB::table('campuses')->insert([
+            [
+                'name' => 'Sylhet Engineering Collage',
+            ],
+            [
+                'name' => 'Maymonshing Engineering Collage',
+            ],
+            [
+                'name' => 'Foridpur Engineering Collage',
+            ]
+        ]);
+
+        // User Seeder Seeder
+        DB::table('users')->insert([
+            [
+                'campus_id' => 1,
+                'phone' => '52222255555',
+                'name' => 'Teacher 1',
+                'email' => 'teacher1@gmail.com',
+                'password' => Hash::make(12345678),
+            ],
+            [
+                'campus_id' => 2,
+                'phone' => '6666666666',
+                'name' => 'Teacher 2',
+                'email' => 'teacher2@gmail.com',
+                'password' => Hash::make(12345678),
+            ],
+            [
+                'campus_id' => 3,
+                'phone' => '88888888888',
+                'name' => 'Teacher 3',
+                'email' => 'teacher3@gmail.com',
+                'password' => Hash::make(12345678),
+            ],
+            [
+                'campus_id' => 1,
+                'phone' => '66666666645',
+                'name' => 'Teacher 4',
+                'email' => 'teacher4@gmail.com',
+                'password' => Hash::make(12345678),
+            ],
+            [
+                'campus_id' => 2,
+                'phone' => '21548765',
+                'name' => 'Teacher 5',
+                'email' => 'teacher5@gmail.com',
+                'password' => Hash::make(12345678),
+            ],
+            [
+                'campus_id' => 3,
+                'phone' => '3335555263',
+                'name' => 'Teacher 5',
+                'email' => 'teacher6@gmail.com',
+                'password' => Hash::make(12345678),
+            ],
+            [
+                'campus_id' => 1,
+                'phone' => '333355485',
+                'name' => 'Teacher 7',
+                'email' => 'teacher7@gmail.com',
+                'password' => Hash::make(12345678),
+            ],
+            [
+                'campus_id' => 2,
+                'phone' => '3582225554',
+                'name' => 'Teacher 8',
+                'email' => 'teacher8@gmail.com',
+                'password' => Hash::make(12345678),
+            ],
+            [
+                'campus_id' => 3,
+                'phone' => '3366582469',
+                'name' => 'Teacher 9',
+                'email' => 'teacher9@gmail.com',
+                'password' => Hash::make(12345678),
+            ],
+            [
+                'campus_id' => 1,
+                'phone' => '22555666663',
+                'name' => 'Teacher 10',
+                'email' => 'teacher10@gmail.com',
+                'password' => Hash::make(12345678),
+            ]
+        ]);
     }
 }
