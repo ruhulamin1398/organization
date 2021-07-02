@@ -36,23 +36,23 @@
                                     <th>SL</th>
                                     <th>Name</th>
                                     <th>Phone</th>
-                                    <th>Deu</th>
+                                    <th>Due</th>
                                     <th>Amount</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($user as $user)
+                                @foreach ($teachers as $teacher)
                                     <tr class="odd">
                                         <td>{{ $loop -> index + 1 }}</td>
-                                        <td>{{ $user -> name }}</td>
-                                        <td>{{ $user -> phone }}</td>
-                                        <td>500</td>
+                                        <td>{{ $teacher -> name }}</td>
+                                        <td>{{ $teacher -> phone }}</td>
+                                        <td>{{ $teacher -> due }}</td>
                                         <td>
                                             <form action="{{ route('admin.storeBilling') }}" method="POST">
                                                 @csrf
                                                 <div class="row">
                                                     <div class="col-md-8">
-                                                        <input type="hidden" value="{{ $user -> id }}" name="user_id">
+                                                        <input type="hidden" value="{{ $teacher -> id }}" name="user_id">
                                                         <input class="form-control" type="text" name="amount">
                                                     </div>
                                                     <div class="col-md-4">

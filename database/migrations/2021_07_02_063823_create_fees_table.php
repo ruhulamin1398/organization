@@ -15,7 +15,7 @@ class CreateFeesTable extends Migration
     {
         Schema::create('fees', function (Blueprint $table) {
             $table->id();
-            $table->integer('montly');
+            $table->integer('monthly');
             $table->integer('central');
             $table->timestamps();
         });

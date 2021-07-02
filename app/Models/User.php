@@ -69,7 +69,7 @@ class User extends Authenticatable
     public function campus(){
         return $this->belongsTo(Campus::class);
     }
-    
+
     public function payments(){
         return $this->hasMany(payment::class)->orderBy('id','desc');
     }
