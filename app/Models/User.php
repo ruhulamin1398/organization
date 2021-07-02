@@ -9,9 +9,13 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
+use  App\Models\payment;
 class User extends Authenticatable
 {
+
+    use HasRoles;
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
@@ -60,4 +64,16 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+
+    public function campus(){
+        return $this->belongsTo(Campus::class);
+    }
+    
+    public function payments(){
+        return $this->hasMany(payment::class)->orderBy('id','desc');
+    }
+
+
+
 }

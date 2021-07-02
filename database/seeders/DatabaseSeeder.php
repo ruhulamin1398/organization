@@ -31,78 +31,236 @@ class DatabaseSeeder extends Seeder
             ]
         ]);
 
+
+
+
+        DB::table('roles')->insert(
+            [
+                [
+                    'name' => 'central_admin',
+                    'guard_name' => 'web',
+                ],
+                [
+                    'name' => 'campus_admin',
+                    'guard_name' => 'web',
+                ], [
+                    'name' => 'teacher',
+                    'guard_name' => 'web',
+                ],
+            ]
+        );
+
+
+
         // User Seeder Seeder
         DB::table('users')->insert([
             [
+                'campus_id' => 4,
+                'phone' => \Faker\Factory::create()->phoneNumber,
+                'name' => 'Central Admin',
+                'email' => 'central@gmail.com',
+                'password' => Hash::make(1234),
+            ],
+            [
                 'campus_id' => 1,
-                'phone' => '52222255555',
-                'name' => 'Teacher 1',
-                'email' => 'teacher1@gmail.com',
-                'password' => Hash::make(12345678),
+                'phone' => \Faker\Factory::create()->phoneNumber,
+                'name' => 'Sec Admin',
+                'email' => 'sec@gmail.com',
+                'password' => Hash::make(1234),
             ],
             [
                 'campus_id' => 2,
-                'phone' => '6666666666',
-                'name' => 'Teacher 2',
-                'email' => 'teacher2@gmail.com',
-                'password' => Hash::make(12345678),
+                'phone' => \Faker\Factory::create()->phoneNumber,
+                'name' => 'Mec Admin',
+                'email' => 'mec@gmail.com',
+                'password' => Hash::make(1234),
             ],
             [
                 'campus_id' => 3,
-                'phone' => '88888888888',
-                'name' => 'Teacher 3',
-                'email' => 'teacher3@gmail.com',
-                'password' => Hash::make(12345678),
+                'phone' => \Faker\Factory::create()->phoneNumber,
+                'name' => 'Fec Admin',
+                'email' => 'fec@gmail.com',
+                'password' => Hash::make(1234),
             ],
+            ///////////////////////////////
             [
                 'campus_id' => 1,
-                'phone' => '66666666645',
-                'name' => 'Teacher 4',
-                'email' => 'teacher4@gmail.com',
-                'password' => Hash::make(12345678),
-            ],
-            [
-                'campus_id' => 2,
                 'phone' => '21548765',
-                'name' => 'Teacher 5',
-                'email' => 'teacher5@gmail.com',
-                'password' => Hash::make(12345678),
+                'name' => 'sec_teacher',
+                'email' => 'sec_teacher@gmail.com',
+                'password' => Hash::make(1234),
             ],
+
+
             [
-                'campus_id' => 3,
-                'phone' => '3335555263',
-                'name' => 'Teacher 5',
-                'email' => 'teacher6@gmail.com',
-                'password' => Hash::make(12345678),
+                'campus_id' => 1,
+                'phone' =>\Faker\Factory::create()->phoneNumber,
+                'name' =>\Faker\Factory::create()->name,
+                'email' => \Faker\Factory::create()->email,
+                'password' => Hash::make(1234),
             ],
             [
                 'campus_id' => 1,
-                'phone' => '333355485',
-                'name' => 'Teacher 7',
-                'email' => 'teacher7@gmail.com',
-                'password' => Hash::make(12345678),
-            ],
-            [
-                'campus_id' => 2,
-                'phone' => '3582225554',
-                'name' => 'Teacher 8',
-                'email' => 'teacher8@gmail.com',
-                'password' => Hash::make(12345678),
-            ],
-            [
-                'campus_id' => 3,
-                'phone' => '3366582469',
-                'name' => 'Teacher 9',
-                'email' => 'teacher9@gmail.com',
-                'password' => Hash::make(12345678),
+                'phone' =>\Faker\Factory::create()->phoneNumber,
+                'name' =>\Faker\Factory::create()->name,
+                'email' => \Faker\Factory::create()->email,
+                'password' => Hash::make(1234),
             ],
             [
                 'campus_id' => 1,
-                'phone' => '22555666663',
-                'name' => 'Teacher 10',
-                'email' => 'teacher10@gmail.com',
-                'password' => Hash::make(12345678),
-            ]
+                'phone' =>\Faker\Factory::create()->phoneNumber,
+                'name' =>\Faker\Factory::create()->name,
+                'email' => \Faker\Factory::create()->email,
+                'password' => Hash::make(1234),
+            ],
+            [
+                'campus_id' => 1,
+                'phone' =>\Faker\Factory::create()->phoneNumber,
+                'name' =>\Faker\Factory::create()->name,
+                'email' => \Faker\Factory::create()->email,
+                'password' => Hash::make(1234),
+            ],
+            [
+                'campus_id' => 1,
+                'phone' =>\Faker\Factory::create()->phoneNumber,
+                'name' =>\Faker\Factory::create()->name,
+                'email' => \Faker\Factory::create()->email,
+                'password' => Hash::make(1234),
+            ],
+            [
+                'campus_id' => 1,
+                'phone' =>\Faker\Factory::create()->phoneNumber,
+                'name' =>\Faker\Factory::create()->name,
+                'email' => \Faker\Factory::create()->email,
+                'password' => Hash::make(1234),
+            ],
+            [
+                'campus_id' => 1,
+                'phone' =>\Faker\Factory::create()->phoneNumber,
+                'name' =>\Faker\Factory::create()->name,
+                'email' => \Faker\Factory::create()->email,
+                'password' => Hash::make(1234),
+            ],
+            [
+                'campus_id' => 1,
+                'phone' =>\Faker\Factory::create()->phoneNumber,
+                'name' =>\Faker\Factory::create()->name,
+                'email' => \Faker\Factory::create()->email,
+                'password' => Hash::make(1234),
+            ],
+            [
+                'campus_id' => 1,
+                'phone' =>\Faker\Factory::create()->phoneNumber,
+                'name' =>\Faker\Factory::create()->name,
+                'email' => \Faker\Factory::create()->email,
+                'password' => Hash::make(1234),
+            ],
+            [
+                'campus_id' => 1,
+                'phone' =>\Faker\Factory::create()->phoneNumber,
+                'name' =>\Faker\Factory::create()->name,
+                'email' => \Faker\Factory::create()->email,
+                'password' => Hash::make(1234),
+            ],
+            [
+                'campus_id' => 1,
+                'phone' =>\Faker\Factory::create()->phoneNumber,
+                'name' =>\Faker\Factory::create()->name,
+                'email' => \Faker\Factory::create()->email,
+                'password' => Hash::make(1234),
+            ],
+            [
+                'campus_id' => 1,
+                'phone' =>\Faker\Factory::create()->phoneNumber,
+                'name' =>\Faker\Factory::create()->name,
+                'email' => \Faker\Factory::create()->email,
+                'password' => Hash::make(1234),
+            ],
+          
+          
+        ]);
+
+
+
+
+        DB::table('model_has_roles')->insert([
+            [
+                'role_id' => 1,
+                'model_type' => 'App\Models\User',
+                'model_id' => 1,
+            ],
+            
+            ///// campus admin
+            [
+                'role_id' => 2,
+                'model_type' => 'App\Models\User',
+                'model_id' => 2,
+            ], [
+                'role_id' => 2,
+                'model_type' => 'App\Models\User',
+                'model_id' => 3,
+            ], [
+                'role_id' => 2,
+                'model_type' => 'App\Models\User',
+                'model_id' => 4,
+            ], 
+            
+            
+            // teachers 
+            
+            [
+                'role_id' => 3,
+                'model_type' => 'App\Models\User',
+                'model_id' => 5,
+            ], [
+                'role_id' => 3,
+                'model_type' => 'App\Models\User',
+                'model_id' => 6,
+            ], [
+                'role_id' => 3,
+                'model_type' => 'App\Models\User',
+                'model_id' => 7,
+            ], [
+                'role_id' => 3,
+                'model_type' => 'App\Models\User',
+                'model_id' => 8,
+            ], [
+                'role_id' => 3,
+                'model_type' => 'App\Models\User',
+                'model_id' => 9,
+            ], [
+                'role_id' => 3,
+                'model_type' => 'App\Models\User',
+                'model_id' => 10,
+            ], [
+                'role_id' => 3,
+                'model_type' => 'App\Models\User',
+                'model_id' => 11,
+            ], [
+                'role_id' => 3,
+                'model_type' => 'App\Models\User',
+                'model_id' => 12,
+            ], [
+                'role_id' => 3,
+                'model_type' => 'App\Models\User',
+                'model_id' => 13,
+            ], [
+                'role_id' => 3,
+                'model_type' => 'App\Models\User',
+                'model_id' => 14,
+            ], [
+                'role_id' => 3,
+                'model_type' => 'App\Models\User',
+                'model_id' => 15,
+            ], [
+                'role_id' => 3,
+                'model_type' => 'App\Models\User',
+                'model_id' => 16,
+            ], [
+                'role_id' => 3,
+                'model_type' => 'App\Models\User',
+                'model_id' => 17,
+            ],
         ]);
     }
 }
