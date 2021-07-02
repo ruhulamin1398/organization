@@ -15,13 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth','role:campus_admin']], function () {
     Route::get('/', function () {
         return view('welcome');
     });
 });
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['auth','role:campus_admin']], function () {
     // Dashboard Controller
     Route::get('dashboard', [HomeController::class, 'index']) -> name('dashboard');
     Route::post('dashboard/store', [HomeController::class, 'storeBilling']) -> name('storeBilling');

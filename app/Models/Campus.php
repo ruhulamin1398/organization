@@ -9,4 +9,9 @@ class Campus extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+
+    public function teachers(){
+        return  User::where('campus_id',$this->id) ->where('id','>',4)->get();
+    }
 }
