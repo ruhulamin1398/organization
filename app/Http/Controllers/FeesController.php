@@ -14,7 +14,8 @@ class FeesController extends Controller
      */
     public function index()
     {
-        //
+        $fees = Fees::find(1);
+        return view('Admin.Fees.index', compact('fees'));
     }
 
     /**
@@ -55,9 +56,10 @@ class FeesController extends Controller
      * @param  \App\Models\Fees  $fees
      * @return \Illuminate\Http\Response
      */
-    public function edit(Fees $fees)
+    public function edit(Fees $fees, $id)
     {
-        //
+        $fees = Fees::find($id);
+        return view('Admin.Fees.edit', compact('fees'));
     }
 
     /**
@@ -67,9 +69,22 @@ class FeesController extends Controller
      * @param  \App\Models\Fees  $fees
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Fees $fees)
+    public function update(Request $request, $id)
     {
-        //
+        $request -> validate([
+            'monthly' => 'required',
+            'central' => 'required',
+        ],[
+            'monthly.required' => 'Monthly fes field must not be empty',
+            'central.required' => 'Central fes field must not be empty',
+        ]);
+
+        Fees::find($id)-> update([
+            'monthly' => $request -> monthly,
+            'central' => $request -> central,
+        ]);
+
+        return redirect() -> route('admin.fees.index') -> with('success', 'Fees Updated Successfull');
     }
 
     /**

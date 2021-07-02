@@ -17,6 +17,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        $this -> call([
+            PaymentSeeder::class,
+            FeesSeeder::class,
+        ]);
 
         // Campus Seeder
         DB::table('campuses')->insert([
@@ -100,7 +104,14 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make(1234),
             ],
             [
-                'campus_id' => 1,
+                'campus_id' => 2,
+                'phone' =>\Faker\Factory::create()->phoneNumber,
+                'name' =>\Faker\Factory::create()->name,
+                'email' => \Faker\Factory::create()->email,
+                'password' => Hash::make(1234),
+            ],
+            [
+                'campus_id' => 3,
                 'phone' =>\Faker\Factory::create()->phoneNumber,
                 'name' =>\Faker\Factory::create()->name,
                 'email' => \Faker\Factory::create()->email,
@@ -114,7 +125,14 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make(1234),
             ],
             [
-                'campus_id' => 1,
+                'campus_id' => 2,
+                'phone' =>\Faker\Factory::create()->phoneNumber,
+                'name' =>\Faker\Factory::create()->name,
+                'email' => \Faker\Factory::create()->email,
+                'password' => Hash::make(1234),
+            ],
+            [
+                'campus_id' => 3,
                 'phone' =>\Faker\Factory::create()->phoneNumber,
                 'name' =>\Faker\Factory::create()->name,
                 'email' => \Faker\Factory::create()->email,
@@ -128,7 +146,14 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make(1234),
             ],
             [
-                'campus_id' => 1,
+                'campus_id' => 2,
+                'phone' =>\Faker\Factory::create()->phoneNumber,
+                'name' =>\Faker\Factory::create()->name,
+                'email' => \Faker\Factory::create()->email,
+                'password' => Hash::make(1234),
+            ],
+            [
+                'campus_id' => 3,
                 'phone' =>\Faker\Factory::create()->phoneNumber,
                 'name' =>\Faker\Factory::create()->name,
                 'email' => \Faker\Factory::create()->email,
@@ -142,46 +167,25 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make(1234),
             ],
             [
-                'campus_id' => 1,
+                'campus_id' => 2,
                 'phone' =>\Faker\Factory::create()->phoneNumber,
                 'name' =>\Faker\Factory::create()->name,
                 'email' => \Faker\Factory::create()->email,
                 'password' => Hash::make(1234),
             ],
             [
-                'campus_id' => 1,
+                'campus_id' => 3,
                 'phone' =>\Faker\Factory::create()->phoneNumber,
                 'name' =>\Faker\Factory::create()->name,
                 'email' => \Faker\Factory::create()->email,
                 'password' => Hash::make(1234),
             ],
-            [
-                'campus_id' => 1,
-                'phone' =>\Faker\Factory::create()->phoneNumber,
-                'name' =>\Faker\Factory::create()->name,
-                'email' => \Faker\Factory::create()->email,
-                'password' => Hash::make(1234),
-            ],
-            [
-                'campus_id' => 1,
-                'phone' =>\Faker\Factory::create()->phoneNumber,
-                'name' =>\Faker\Factory::create()->name,
-                'email' => \Faker\Factory::create()->email,
-                'password' => Hash::make(1234),
-            ],
-            [
-                'campus_id' => 1,
-                'phone' =>\Faker\Factory::create()->phoneNumber,
-                'name' =>\Faker\Factory::create()->name,
-                'email' => \Faker\Factory::create()->email,
-                'password' => Hash::make(1234),
-            ],
-          
-          
+
+
         ]);
 
 
-
+        // Add Role
 
         DB::table('model_has_roles')->insert([
             [
@@ -189,7 +193,7 @@ class DatabaseSeeder extends Seeder
                 'model_type' => 'App\Models\User',
                 'model_id' => 1,
             ],
-            
+
             ///// campus admin
             [
                 'role_id' => 2,
@@ -203,11 +207,11 @@ class DatabaseSeeder extends Seeder
                 'role_id' => 2,
                 'model_type' => 'App\Models\User',
                 'model_id' => 4,
-            ], 
-            
-            
-            // teachers 
-            
+            ],
+
+
+            // teachers
+
             [
                 'role_id' => 3,
                 'model_type' => 'App\Models\User',
@@ -262,5 +266,6 @@ class DatabaseSeeder extends Seeder
                 'model_id' => 17,
             ],
         ]);
+
     }
 }

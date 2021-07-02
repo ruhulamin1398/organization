@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\FeesController;
 use App\Http\Controllers\HomeController;
+use App\Models\Fees;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +27,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['auth','rol
     // Dashboard Controller
     Route::get('dashboard', [HomeController::class, 'index']) -> name('dashboard');
     Route::post('dashboard/store', [HomeController::class, 'storeBilling']) -> name('storeBilling');
+    route::resource('fees', FeesController::class);
 });
 
 
