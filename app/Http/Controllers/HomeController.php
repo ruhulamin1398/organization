@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Billing;
 use App\Models\Fees;
+use App\Models\payment;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Carbon\Carbon;
@@ -15,8 +16,8 @@ class HomeController extends Controller
     {
         // Diue
         $fees = Fees::find(1);
-        $billings = Billing::all();
-        $monthlyFees = $fees -> monthly;
+        $monthlyFees = $fees->monthly;
+
         $teachers =  Auth::user()->campus->teachers();
 
         foreach ($teachers as $teacher) {
@@ -53,6 +54,37 @@ class HomeController extends Controller
             'amount' => $request->amount,
             'user_id' => $request->user_id,
         ]);
+
+        $fees = Fees::find(1);
+        $month = $request->amount / $fees->monthly;
+
+
+        $teacher = User::find($request->user_id);
+        $lastMonth = $teacher->payments->first()->month;
+        $lastYear = $teacher->payments->first()->year;
+
+
+    for($i=0 ; $i<$month ; $i++){
+        $lastMonth ++;
+
+        if($lastMonth==13){
+            $lastMonth=1;
+            $lastYear ++;
+        }
+
+        $payment= new payment;
+        $payment->user_id = $teacher->id;
+        $payment->month = $lastMonth;
+        $payment->year = $lastYear;
+        $payment->amount = $fees->monthly;
+        $payment->save();
+
+
+
+    }
+
+    //    return compact('lastMonth','lastYear');
+
 
         return redirect()->back()->with('success', 'Amount Added Successful');
     }
