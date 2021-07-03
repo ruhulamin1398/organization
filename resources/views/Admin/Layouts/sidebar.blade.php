@@ -16,6 +16,12 @@
             <div class="nk-sidebar-menu" data-simplebar>
                 <ul class="nk-menu">
                 <!-- .nk-menu-item -->
+                <li class="nk-menu-item has-sub">
+                    <a href="{{ route('admin.fees.index') }}" class="nk-menu-link">
+                        <span class="nk-menu-icon"><em class="icon ni ni-users"></em></span>
+                        <span class="nk-menu-text">Teacher</span>
+                    </a>
+                </li><!-- .nk-menu-item -->
                     <li class="nk-menu-item has-sub">
                         <a href="{{ route('admin.fees.index') }}" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-users"></em></span>

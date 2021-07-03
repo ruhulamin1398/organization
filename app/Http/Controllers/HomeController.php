@@ -14,6 +14,7 @@ class HomeController extends Controller
 {
     public function index()
     {
+        // Diue
         $fees = Fees::find(1);
         $monthlyFees = $fees->monthly;
 
@@ -31,7 +32,11 @@ class HomeController extends Controller
                 $teacher->due_month = $dueMonth;
                 $teacher->due = $dueMonth * $monthlyFees;
             }
+
         }
+
+        // return $billings;
+
         return view('Admin.index', compact('teachers'));
         // return $teachers;
     }
