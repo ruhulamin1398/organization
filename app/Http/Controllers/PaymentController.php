@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\payment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Fees;
+use App\Models\Billing;
+use Illuminate\Support\Carbon;
 
 class PaymentController extends Controller
 {
@@ -14,7 +18,7 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**

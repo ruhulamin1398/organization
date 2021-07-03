@@ -13,9 +13,10 @@ class HomeController extends Controller
 {
     public function index()
     {
+        // Diue
         $fees = Fees::find(1);
+        $billings = Billing::all();
         $monthlyFees = $fees -> monthly;
-
         $teachers =  Auth::user()->campus->teachers();
 
         foreach ($teachers as $teacher) {
@@ -30,7 +31,11 @@ class HomeController extends Controller
                 $teacher->due_month = $dueMonth;
                 $teacher->due = $dueMonth * $monthlyFees;
             }
+
         }
+
+        // return $billings;
+
         return view('Admin.index', compact('teachers'));
         // return $teachers;
     }
