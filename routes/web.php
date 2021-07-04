@@ -4,6 +4,7 @@ use App\Http\Controllers\FeesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\TeacherProfileController;
 use App\Models\Fees;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['auth','rol
     Route::resource('fees', FeesController::class);
     Route::get('teacher', [TeacherController::class, 'index']) -> name('teacher');
     Route::resource('notice', NoticeController::class);
+});
+
+Route::group(['prefix' => 'user', 'as' => 'user.','middleware' => ['auth','role:teacher']], function () {
+    Route::get('dashboard', [TeacherProfileController::class , 'index']);
 });
 
 
