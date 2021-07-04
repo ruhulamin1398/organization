@@ -35,7 +35,6 @@
                                 <tr>
                                     <th>SL</th>
                                     <th>Name</th>
-                                    <th>Phone</th>
                                     <th>Due</th>
                                     <th>Amount</th>
                                 </tr>
@@ -45,17 +44,25 @@
                                     <tr class="odd">
                                         <td>{{ $loop -> index + 1 }}</td>
                                         <td>{{ $teacher -> name }}</td>
-                                        <td>{{ $teacher -> phone }}</td>
                                         <td>{{ $teacher -> due }}</td>
                                         <td>
                                             <form action="{{ route('admin.storeBilling') }}" method="POST">
                                                 @csrf
                                                 <div class="row">
-                                                    <div class="col-md-8">
+                                                    <div class="col-md-3">
                                                         <input type="hidden" value="{{ $teacher -> id }}" name="user_id">
-                                                        <input class="form-control" type="text" name="amount">
+                                                        <input class="form-control" type="text" name="amount" placeholder="Amount">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <select name="type" id="" class="form-control">
+                                                            <option value="monthly">Monthly</option>
+                                                            <option value="others">Others</option>
+                                                        </select>
                                                     </div>
                                                     <div class="col-md-4">
+                                                        <input type="text" name="comment" class="form-control" placeholder="Comment">
+                                                    </div>
+                                                    <div class="col-md-2">
                                                         <input type="submit" class="btn btn-primary" value="Pay">
                                                     </div>
                                                 </div>
