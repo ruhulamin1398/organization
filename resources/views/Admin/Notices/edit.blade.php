@@ -1,5 +1,7 @@
 @extends('Admin.app')
 
+@section('title', 'Organaization - Notice Edit')
+
 @section('css')
     <style>
        .datatable-init tbody tr td{

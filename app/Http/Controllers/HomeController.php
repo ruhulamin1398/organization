@@ -30,7 +30,6 @@ class HomeController extends Controller
                 $teacher->due_month = $dueMonth;
                 $teacher->due = $dueMonth * $monthlyFees;
             }
-
         }
         // return $billings;
         return view('Admin.index', compact('teachers'));
