@@ -9,20 +9,43 @@ use App\Models\Fees;
 
 class TeacherController extends Controller
 {
-    public function index(){
-        $teachers =  Auth::user()->campus->teachers();
+    public function index(Request $request){
+
+        // $teachers =  Auth::user()->campus->teachers();
+        $teachers = Auth::user()->billings;
+        return $teachers;
         $totalMonth = 0;
-        foreach ($teachers as $teacher) {
-            $fees = Fees::find(1);
-            if (!is_null($teacher->payments)) {
-                $months = 0;
-                foreach($teacher->payments as $payment){
-                    $months ++;
+
+        // if($request -> type == 'monthly'){
+        //     foreach ($teachers as $teacher) {
+        //         $fees = Fees::find(1);
+        //         if (!is_null($teacher->payments)) {
+        //             $months = 0;
+        //             foreach($teacher->payments as $payment){
+        //                 $months ++;
+        //             }
+        //             $teacher -> months = $months;
+        //             $teacher -> totalAmount = $fees -> monthly * $months;
+        //         }
+        //     }
+        //     return view('Admin.Teacher.index', compact('teachers'));
+        // }
+
+        if($request -> type == 'monthly'){
+            foreach ($teachers as $teacher) {
+                $fees = Fees::find(1);
+                if (!is_null($teacher->payments)) {
+                    $months = 0;
+                    foreach($teacher->payments as $payment){
+                        $months ++;
+                    }
+                    $teacher -> months = $months;
+                    $teacher -> totalAmount = $fees -> monthly * $months;
                 }
-                $teacher -> months = $months;
-                $teacher -> totalAmount = $fees -> monthly * $months;
             }
+            return view('Admin.Teacher.index', compact('teachers'));
         }
-        return view('Admin.Teacher.index', compact('teachers'));
+
+
     }
 }

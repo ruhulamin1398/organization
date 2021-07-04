@@ -10,6 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use App\Models\Billing;
 
 use  App\Models\payment;
 class User extends Authenticatable
@@ -72,6 +73,10 @@ class User extends Authenticatable
 
     public function payments(){
         return $this->hasMany(payment::class)->orderBy('id','desc');
+    }
+
+    public function billings(){
+        return Billing::where('id',$this->id) ->where('user_id','>',4)->get();
     }
 
 
