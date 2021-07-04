@@ -65,7 +65,7 @@ class NoticeController extends Controller
             'file' => $unique_name,
         ]);
 
-        return redirect() -> back() -> with('success', 'Notice Added Successfull!');
+        return redirect() -> route('admin.notice.index') -> with('success', 'Notice Added Successfull!');
 
     }
 
