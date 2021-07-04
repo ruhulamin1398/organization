@@ -29,6 +29,24 @@
 
             <div class="card card-preview">
                 <div class="card-inner">
+                    <div class="row justify-content-end mr-2">
+                        <form action="{{ route('admin.teacher') }}" class="form-inline">
+                            @csrf
+                            <div class="form-group mr-1">
+                                <input type="month" name="month" class="form-control">
+                            </div>
+                            <div class="form-group mr-1">
+                                <select name="type" id="" class="form-control">
+                                    <option value="all">All</option>
+                                    <option value="monthly">Monthly</option>
+                                    <option value="others">Others</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Search" class="btn  btn-outline-dark">
+                            </div>
+                        </form>
+                   </div>
                     <div class="datatable-wrap my-3">
                         <table class="datatable-init table ">
                             <thead>
