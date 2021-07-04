@@ -17,9 +17,7 @@ class HomeController extends Controller
         // Diue
         $fees = Fees::find(1);
         $monthlyFees = $fees->monthly;
-
         $teachers =  Auth::user()->campus->teachers();
-
         foreach ($teachers as $teacher) {
             if (!is_null($teacher->payments->first())) {
                 $currentMonth = (int) Carbon::now()->format('m');
@@ -34,9 +32,7 @@ class HomeController extends Controller
             }
 
         }
-
         // return $billings;
-
         return view('Admin.index', compact('teachers'));
         // return $teachers;
     }
@@ -46,42 +42,43 @@ class HomeController extends Controller
     {
         $request->validate([
             'amount' => 'required',
+            'type' => 'required',
         ], [
             'amount.required' => 'Amount must not be empty!',
+            'type.required' => 'Amount type must not be empty!',
         ]);
 
         Billing::create([
             'amount' => $request->amount,
             'user_id' => $request->user_id,
+            'type' => $request -> type,
+            'comment' => $request -> comment,
         ]);
 
-        $fees = Fees::find(1);
-        $month = $request->amount / $fees->monthly;
+        if($request -> type == 'monthly'){
+            $fees = Fees::find(1);
+            $month = $request->amount / $fees->monthly;
+            $teacher = User::find($request->user_id);
+            $lastMonth = $teacher->payments->first()->month;
+            $lastYear = $teacher->payments->first()->year;
 
 
-        $teacher = User::find($request->user_id);
-        $lastMonth = $teacher->payments->first()->month;
-        $lastYear = $teacher->payments->first()->year;
+            for($i=0 ; $i<$month ; $i++){
+                $lastMonth ++;
 
+                if($lastMonth==13){
+                    $lastMonth=1;
+                    $lastYear ++;
+                }
 
-    for($i=0 ; $i<$month ; $i++){
-        $lastMonth ++;
-
-        if($lastMonth==13){
-            $lastMonth=1;
-            $lastYear ++;
+                $payment= new payment;
+                $payment->user_id = $teacher->id;
+                $payment->month = $lastMonth;
+                $payment->year = $lastYear;
+                $payment->amount = $fees->monthly;
+                $payment->save();
+            }
         }
-
-        $payment= new payment;
-        $payment->user_id = $teacher->id;
-        $payment->month = $lastMonth;
-        $payment->year = $lastYear;
-        $payment->amount = $fees->monthly;
-        $payment->save();
-
-
-
-    }
 
     //    return compact('lastMonth','lastYear');
 

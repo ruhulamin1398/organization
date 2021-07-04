@@ -17,7 +17,7 @@
                 <ul class="nk-menu">
                 <!-- .nk-menu-item -->
                 <li class="nk-menu-item has-sub">
-                    <a href="{{ route('admin.fees.index') }}" class="nk-menu-link">
+                    <a href="{{ route('admin.teacher') }}" class="nk-menu-link">
                         <span class="nk-menu-icon"><em class="icon ni ni-users"></em></span>
                         <span class="nk-menu-text">Teacher</span>
                     </a>

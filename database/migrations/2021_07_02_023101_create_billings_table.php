@@ -17,6 +17,8 @@ class CreateBillingsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->double('amount',8,0);
+            $table->string('type');
+            $table->text('comment') -> nullable();
             $table->timestamps();
         });
     }
