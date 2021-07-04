@@ -47,6 +47,11 @@ class HomeController extends Controller
             'type.required' => 'Amount type must not be empty!',
         ]);
 
+        $fees = Fees::find(1);
+        if($request -> type == 'monthly' and  ($request->amount %  $fees->monthly !=0))
+        {
+         return "Error";
+        }
         Billing::create([
             'amount' => $request->amount,
             'user_id' => $request->user_id,
@@ -62,7 +67,7 @@ class HomeController extends Controller
             $lastYear = $teacher->payments->first()->year;
 
 
-            for($i=0 ; $i<$month ; $i++){
+            for($i=1 ; $i<=$month ; $i++){
                 $lastMonth ++;
 
                 if($lastMonth==13){
