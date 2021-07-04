@@ -33,10 +33,10 @@
                         <form action="{{ route('admin.teacher') }}" class="form-inline">
                             @csrf
                             <div class="form-group mr-1">
-                                <input type="month" name="month" class="form-control">
+                                <input type="month" name="month" value="{{old('month')}}" class="form-control">
                             </div>
                             <div class="form-group mr-1">
-                                <select name="type" id="" class="form-control">
+                                <select name="type" id="" value=" {{old('month')}} "class="form-control">
                                     <option value="all">All</option>
                                     <option value="monthly">Monthly</option>
                                     <option value="others">Others</option>
@@ -54,19 +54,26 @@
                                     <th>SL</th>
                                     <th>Name</th>
                                     <th>Phone</th>
-                                    <th>Pay Months</th>
-                                    <th>Total Amount</th>
+                                    <th>Type</th>
+                                    <th> Amount</th>
+                                    <th>Comment</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($teachers as $teacher)
+
+                            @php $i=1 @endphp
+                                @foreach ($billings as $bill)
+
+                                @if($bill->user ->campus->id == Auth::user()->campus->id )
                                     <tr class="odd">
-                                        <td>{{ $loop -> index + 1 }}</td>
-                                        <td>{{$teacher -> name }}</td>
-                                        <td>{{ $teacher -> phone }}</td>
-                                        <td>{{ $teacher -> months }}</td>
-                                        <td>{{ $teacher -> totalAmount }}</td>
+                                        <td>{{ $i++ }}</td>
+                                        <td>{{$bill->user -> name }}</td>
+                                        <td>{{ $bill->user -> phone }}</td>
+                                        <td>{{ $bill-> type }}</td>
+                                        <td>{{ $bill->amount }}</td>
+                                        <td>{{ $bill-> comment }}</td>
                                     </tr>
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>
@@ -77,6 +84,49 @@
 
 
         </div><!-- .col -->
+
+@if($type=='monthly')
+        <div class="col-xxl-6">
+
+
+<div class="card card-preview">
+    <div class="card-inner">
+      
+        <div class="datatable-wrap my-3">
+            <table class="datatable-init table ">
+                <thead>
+                    <tr>
+                        <th>SL</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th> Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                @php $i=1 @endphp
+                    @foreach ($teachers as $teacher)
+
+                 
+                        <tr class="odd">
+                            <td>{{ $i++ }}</td>
+                            <td>{{$teacher -> name }}</td>
+                            <td>{{ $teacher -> phone }}</td>
+                            <td>{{ $teacher->ispay }}</td>
+                        </tr>
+                      
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+</div><!-- .col -->
+@endif
+
+
     </div><!-- .row -->
 </div><!-- .nk-block -->
 
