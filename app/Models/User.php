@@ -76,8 +76,9 @@ class User extends Authenticatable
     }
 
     public function billings(){
-        return Billing::where('id',$this->id) ->where('user_id','>',4)->get();
+        return $this->hasMany(Billing::class)->orderBy('id','desc');
     }
+
 
 
 
