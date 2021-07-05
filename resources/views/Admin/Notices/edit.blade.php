@@ -41,7 +41,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="default-06">Photo / Video</label>
+                            <label class="form-label" for="default-06">File</label>
                             <br>
                             <img style="width: 120px" src="{{ asset('images/notices/') }}/{{ $notice -> file }}" alt="">
                             <br><br>
