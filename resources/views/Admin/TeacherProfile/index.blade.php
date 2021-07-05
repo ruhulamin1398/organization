@@ -36,7 +36,7 @@
                         <div class="col-md-6"></div>
                     </div>
                     <div class="datatable-wrap my-3">
-                        <table class="datatable-init table ">
+                        <table class=" table ">
                             <thead>
                                 <tr>
                                     <th style="width: 10%">SL</th>
@@ -59,17 +59,18 @@
                     </div>
                 </div>
             </div>
-
+        </div>
+        <div class="col-md-6">
             <div class="card card-preview">
                 <div class="card-inner">
                     <div class="row">
                         <div class="col-md-6">
                             <h4>Current Year Payment History</h4>
                         </div>
-                        <div class="col-md-6"></div>
+                        
                     </div>
                     <div class="datatable-wrap my-3">
-                        <table class="datatable-init table ">
+                        <table class="table ">
                             <thead>
                                 <tr>
                                     <th>SL</th>
@@ -96,7 +97,8 @@
                     </div>
                 </div>
             </div>
-
+            </div>
+        <div class="col-md-6">
             <div class="card card-preview">
                 <div class="card-inner">
                     <div class="row">
@@ -106,7 +108,7 @@
                         <div class="col-md-6"></div>
                     </div>
                     <div class="datatable-wrap my-3">
-                        <table class="datatable-init table ">
+                        <table class=" table ">
                             <thead>
                                 <tr>
                                     <th>SL</th>
@@ -116,14 +118,31 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($ispay as $ispay)
+                                @for ($i=1 ; $i<=12 ;$i++)
+
+                              
                                     <tr>
-                                        <td>{{ $loop -> index + 1 }}</td>
-                                        <td>{{ date("F", mktime(0, 0, 0, $ispay -> month, 12)) }}</td>
-                                        <td>Paid</td>
-                                        <td>{{ date('F m, Y', strtotime($ispay -> created_at)) }}</td>
+                                        <td>{{ $i}}</td>
+                                        <td>{{ \Carbon\Carbon::createFromFormat('m', $i)->format('M')}}</td>
+                                        <td>
+                                        @if(isset($monthArray[$i]))
+                                        Paid
+                                        @else
+                                        Unpaid
+                                        @endif
+                                        
+                                        
+                                        </td>
+                                        <td>
+                                        
+                                        @if(isset($monthArray[$i]))
+                                        {{$monthArray[$i]}}
+                                        @else
+                                       --
+                                        @endif
+                                        </td>
                                     </tr>
-                                @endforeach
+                                @endfor
                             </tbody>
                         </table>
                     </div>
