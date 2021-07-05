@@ -13,7 +13,7 @@
 <div class="nk-block-head nk-block-head-sm">
     <div class="nk-block-between">
         <div class="nk-block-head-content">
-            <h3 class="nk-block-title page-title">Teacher Amount Details</h3>
+            <h3 class="nk-block-title page-title">{{ Auth::user()->name }} Details</h3>
             {{-- <div class="nk-block-des text-soft">
                 <p>Welcome to DashLite Dashboard Template.</p>
             </div> --}}
@@ -29,25 +29,107 @@
 
             <div class="card card-preview">
                 <div class="card-inner">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Notice Board</h4>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
                     <div class="datatable-wrap my-3">
                         <table class="datatable-init table ">
                             <thead>
                                 <tr>
-                                    <th>SL</th>
-                                    <th>Name</th>
-                                    <th>Phone</th>
-                                    <th>Due</th>
-                                    <th>Pay Months</th>
-                                    <th>Total Amount</th>
+                                    <th style="width: 10%">SL</th>
+                                    <th style="width: 20%">Notice Title</th>
+                                    <th>Notice Description</th>
+                                    <th style="width: 10%">File</th>
                                 </tr>
                             </thead>
                             <tbody>
-
+                                @foreach ($notices as $notice)
+                                    <tr>
+                                        <td>{{ $loop -> index = 1 }}</td>
+                                        <td>{{ $notice -> title }}</td>
+                                        <td>{{ $notice -> description }}</td>
+                                        <td><a target="blank" href="{{ "images/notices/". $notice -> file }}" class="btn btn-outline-success">Download</a></td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+
+            <div class="card card-preview">
+                <div class="card-inner">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Current Year Payment History</h4>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <div class="datatable-wrap my-3">
+                        <table class="datatable-init table ">
+                            <thead>
+                                <tr>
+                                    <th>SL</th>
+                                    <th>Payment Type</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($billings as $bill)
+                                    @if(Auth::user() -> id == $bill -> user_id)
+
+                                        <tr>
+                                            <td>{{ $loop -> index + 1 }}</td>
+                                            <td>{{ $bill -> type }}</td>
+                                            <td>{{ $bill -> amount }}</td>
+                                            <td>{{ date('F m, Y', strtotime($bill -> created_at)) }}</td>
+                                        </tr>
+
+                                     @endif
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-preview">
+                <div class="card-inner">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Current Year Status</h4>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <div class="datatable-wrap my-3">
+                        <table class="datatable-init table ">
+                            <thead>
+                                <tr>
+                                    <th>SL</th>
+                                    <th>Month</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($ispay as $ispay)
+                                    <tr>
+                                        <td>{{ $loop -> index + 1 }}</td>
+                                        <td>{{ date("F", mktime(0, 0, 0, $ispay -> month, 12)) }}</td>
+                                        <td>Paid</td>
+                                        <td>{{ date('F m, Y', strtotime($ispay -> created_at)) }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
 
 
 
