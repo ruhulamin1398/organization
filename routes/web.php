@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CentralController;
 use App\Http\Controllers\FeesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NoticeController;
@@ -33,6 +34,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['auth','rol
     Route::resource('fees', FeesController::class);
     Route::get('teacher', [TeacherController::class, 'index']) -> name('teacher');
     Route::resource('notice', NoticeController::class);
+    Route::get('central', [CentralController::class, 'create']) -> name('central-create');
+    Route::post('central/store', [CentralController::class, 'store']) -> name('central-store');
 });
 
 Route::group(['prefix' => 'user', 'as' => 'user.','middleware' => ['auth','role:teacher']], function () {
