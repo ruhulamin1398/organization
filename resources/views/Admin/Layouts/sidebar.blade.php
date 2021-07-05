@@ -16,35 +16,37 @@
             <div class="nk-sidebar-menu" data-simplebar>
                 <ul class="nk-menu">
                 <!-- .nk-menu-item -->
-                <li class="nk-menu-item has-sub">
-                    <a href="{{ route('admin.teacher') }}" class="nk-menu-link">
-                        <span class="nk-menu-icon"><em class="icon ni ni-users"></em></span>
-                        <span class="nk-menu-text">Teacher</span>
-                    </a>
-                </li><!-- .nk-menu-item -->
-                <li class="nk-menu-item has-sub">
-                    <a href="{{ route('admin.fees.index') }}" class="nk-menu-link">
-                        <span class="nk-menu-icon"><em class="icon ni ni-users"></em></span>
-                        <span class="nk-menu-text">Fees</span>
-                    </a>
-                    {{-- <ul class="nk-menu-sub">
-                        <li class="nk-menu-item">
-                            <a href="html/user-list-regular.html" class="nk-menu-link"><span class="nk-menu-text">Manage Fees</span></a>
-                        </li>
-                    </ul><!-- .nk-menu-sub --> --}}
-                </li><!-- .nk-menu-item -->
-                <li class="nk-menu-item has-sub">
-                    <a href="#" class="nk-menu-link nk-menu-toggle">
-                        <span class="nk-menu-icon"><em class="icon ni ni-tile-thumb"></em></span>
-                        <span class="nk-menu-text">Notice</span>
-                    </a>
-                    <ul class="nk-menu-sub">
-                        <li class="nk-menu-item">
-                            <a href="{{ route('admin.notice.create') }}" class="nk-menu-link"><span class="nk-menu-text">Add Notice</span></a>
-                            <a href="{{ route('admin.notice.index') }}" class="nk-menu-link"><span class="nk-menu-text">Manage Notice</span></a>
-                        </li>
-                    </ul><!-- .nk-menu-sub -->
-                </li><!-- .nk-menu-item -->
+                @role('campus_admin')
+                    <li class="nk-menu-item has-sub">
+                        <a href="{{ route('admin.teacher') }}" class="nk-menu-link">
+                            <span class="nk-menu-icon"><em class="icon ni ni-users"></em></span>
+                            <span class="nk-menu-text">Teacher</span>
+                        </a>
+                    </li><!-- .nk-menu-item -->
+                    <li class="nk-menu-item has-sub">
+                        <a href="{{ route('admin.fees.index') }}" class="nk-menu-link">
+                            <span class="nk-menu-icon"><em class="icon ni ni-users"></em></span>
+                            <span class="nk-menu-text">Fees</span>
+                        </a>
+                        {{-- <ul class="nk-menu-sub">
+                            <li class="nk-menu-item">
+                                <a href="html/user-list-regular.html" class="nk-menu-link"><span class="nk-menu-text">Manage Fees</span></a>
+                            </li>
+                        </ul><!-- .nk-menu-sub --> --}}
+                    </li><!-- .nk-menu-item -->
+                    <li class="nk-menu-item has-sub">
+                        <a href="#" class="nk-menu-link nk-menu-toggle">
+                            <span class="nk-menu-icon"><em class="icon ni ni-tile-thumb"></em></span>
+                            <span class="nk-menu-text">Notice</span>
+                        </a>
+                        <ul class="nk-menu-sub">
+                            <li class="nk-menu-item">
+                                <a href="{{ route('admin.notice.create') }}" class="nk-menu-link"><span class="nk-menu-text">Add Notice</span></a>
+                                <a href="{{ route('admin.notice.index') }}" class="nk-menu-link"><span class="nk-menu-text">Manage Notice</span></a>
+                            </li>
+                        </ul><!-- .nk-menu-sub -->
+                    </li><!-- .nk-menu-item -->
+                @endrole
                 </ul><!-- .nk-menu -->
             </div><!-- .nk-sidebar-menu -->
         </div><!-- .nk-sidebar-content -->
