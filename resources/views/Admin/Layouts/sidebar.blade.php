@@ -46,6 +46,17 @@
                             </li>
                         </ul><!-- .nk-menu-sub -->
                     </li><!-- .nk-menu-item -->
+                    <li class="nk-menu-item has-sub">
+                        <a href="#" class="nk-menu-link nk-menu-toggle">
+                            <span class="nk-menu-icon"><em class="icon ni ni-tile-thumb"></em></span>
+                            <span class="nk-menu-text">Central Fee</span>
+                        </a>
+                        <ul class="nk-menu-sub">
+                            <li class="nk-menu-item">
+                                <a href="{{ route('admin.central-create') }}" class="nk-menu-link"><span class="nk-menu-text">Pay Fees</span></a>
+                            </li>
+                        </ul><!-- .nk-menu-sub -->
+                    </li><!-- .nk-menu-item -->
                 @endrole
                 </ul><!-- .nk-menu -->
             </div><!-- .nk-sidebar-menu -->
