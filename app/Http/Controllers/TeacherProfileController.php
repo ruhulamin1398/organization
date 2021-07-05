@@ -18,9 +18,15 @@ class TeacherProfileController extends Controller
 
         $billings = Billing::whereYear('created_at', $currentYear) -> get();
 
-        $ispay = payment::where('user_id', $teacher-> id) -> orderBy('month', 'DESC')  -> get();
+        $monthlyPayments = payment::where('user_id', $teacher-> id) -> where('year',$currentYear)-> orderBy('month', 'DESC') -> get();
+$monthArray= [];
+foreach($monthlyPayments as $payment){
+    $monthArray[$payment->month]=$payment->created_at;
+  
+}
 
 
-        return view('Admin.TeacherProfile.index', compact('notices', 'billings', 'ispay'));
+
+        return view('Admin.TeacherProfile.index', compact('notices', 'billings', 'monthArray'));
     }
 }
