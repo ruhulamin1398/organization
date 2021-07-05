@@ -40,7 +40,6 @@
                                     <th>Campus Name</th>
                                     <th>Title</th>
                                     <th>Description</th>
-                                    <th>Image</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -52,12 +51,9 @@
                                         <td>{{ $notice ->  title}}</td>
                                         <td>{{ $notice -> description }}</td>
                                         <td>
-                                            <img style="width: 120px" src="{{ asset('images/notices/') }}/{{ $notice -> file }}" alt="">
-                                        </td>
-                                        <td>
                                             <div class="row">
+                                                <a class="btn btn-success mr-1" target="blank" href="{{ 'images/notices/'. $notice -> file}}">Download</a>
                                                 <a href="{{ route('admin.notice.edit', $notice -> id) }}" class="btn btn-primary">Edit</a>
-
                                                 <form class="ml-1" action="{{ route('admin.notice.destroy', $notice -> id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')

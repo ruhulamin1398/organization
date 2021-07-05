@@ -41,7 +41,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="default-06">Photo / Video</label>
+                            <label class="form-label" for="default-06">File</label>
                             <div class="form-control-wrap">
                                <div class="custom-file">
                                   <input type="file" name="image" multiple="" class="custom-file-input" id="customFile">

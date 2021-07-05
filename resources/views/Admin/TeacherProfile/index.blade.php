@@ -31,7 +31,7 @@
                 <div class="card-inner">
                     <div class="row">
                         <div class="col-md-6">
-                            <h4>Notice Board</h4>
+                            <h5>Notice Board</h5>
                         </div>
                         <div class="col-md-6"></div>
                     </div>
@@ -64,10 +64,10 @@
             <div class="card card-preview">
                 <div class="card-inner">
                     <div class="row">
-                        <div class="col-md-6">
-                            <h4>Current Year Payment History</h4>
+                        <div class="col">
+                            <h5>Current Year Payment History</h5>
                         </div>
-                        
+
                     </div>
                     <div class="datatable-wrap my-3">
                         <table class="table ">
@@ -102,10 +102,9 @@
             <div class="card card-preview">
                 <div class="card-inner">
                     <div class="row">
-                        <div class="col-md-6">
-                            <h4>Current Year Status</h4>
+                        <div class="col">
+                            <h5>Current Year Status</h5>
                         </div>
-                        <div class="col-md-6"></div>
                     </div>
                     <div class="datatable-wrap my-3">
                         <table class=" table ">
@@ -119,27 +118,24 @@
                             </thead>
                             <tbody>
                                 @for ($i=1 ; $i<=12 ;$i++)
-
-                              
                                     <tr>
                                         <td>{{ $i}}</td>
-                                        <td>{{ \Carbon\Carbon::createFromFormat('m', $i)->format('M')}}</td>
+                                        <td>{{ \Carbon\Carbon::createFromFormat('m', $i)->format('F')}}</td>
                                         <td>
                                         @if(isset($monthArray[$i]))
                                         Paid
                                         @else
                                         Unpaid
                                         @endif
-                                        
-                                        
+
+
                                         </td>
                                         <td>
-                                        
-                                        @if(isset($monthArray[$i]))
-                                        {{$monthArray[$i]}}
-                                        @else
-                                       --
-                                        @endif
+                                            @if(isset($monthArray[$i]))
+                                            {{ date('F m, Y', strtotime($monthArray[$i])) }}
+                                            @else
+                                            --
+                                            @endif
                                         </td>
                                     </tr>
                                 @endfor

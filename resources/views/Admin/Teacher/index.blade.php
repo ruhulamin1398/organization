@@ -91,7 +91,7 @@
 
 <div class="card card-preview">
     <div class="card-inner">
-      
+
         <div class="datatable-wrap my-3">
             <table class="datatable-init table ">
                 <thead>
@@ -99,7 +99,7 @@
                         <th>SL</th>
                         <th>Name</th>
                         <th>Phone</th>
-                        <th> Status</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -107,14 +107,14 @@
                 @php $i=1 @endphp
                     @foreach ($teachers as $teacher)
 
-                 
+
                         <tr class="odd">
                             <td>{{ $i++ }}</td>
                             <td>{{$teacher -> name }}</td>
                             <td>{{ $teacher -> phone }}</td>
                             <td>{{ $teacher->ispay }}</td>
                         </tr>
-                      
+
                     @endforeach
                 </tbody>
             </table>
