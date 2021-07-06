@@ -12,8 +12,8 @@
     <!-- Page Title  -->
     <title>@yield('title')</title>
     <!-- StyleSheets  -->
-    <link rel="stylesheet" href="{{ asset('theme/admin') }}./assets/css/dashlite.css?ver=2.4.0">
-    <link id="skin-default" rel="stylesheet" href="{{ asset('theme/admin') }}./assets/css/theme.css?ver=2.4.0">
+    <link rel="stylesheet" href="{{ asset('theme/admin') }}/assets/css/dashlite.css?ver=2.4.0">
+    <link id="skin-default" rel="stylesheet" href="{{ asset('theme/admin') }}/assets/css/theme.css?ver=2.4.0">
     @yield('css')
 </head>
 
@@ -50,9 +50,9 @@
     </div>
     <!-- app-root @e -->
     <!-- JavaScript -->
-    <script src="{{ asset('theme/admin') }}./assets/js/bundle.js?ver=2.4.0"></script>
-    <script src="{{ asset('theme/admin') }}./assets/js/scripts.js?ver=2.4.0"></script>
-    <script src="{{ asset('theme/admin') }}./assets/js/charts/gd-default.js?ver=2.4.0"></script>
+    <script src="{{ asset('theme/admin') }}/assets/js/bundle.js?ver=2.4.0"></script>
+    <script src="{{ asset('theme/admin') }}/assets/js/scripts.js?ver=2.4.0"></script>
+    <script src="{{ asset('theme/admin') }}/assets/js/charts/gd-default.js?ver=2.4.0"></script>
 
     @yield('js')
 </body>
