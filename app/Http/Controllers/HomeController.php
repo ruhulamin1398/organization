@@ -66,6 +66,9 @@ class HomeController extends Controller
             $lastMonth = $teacher->payments->first()->month;
             $lastYear = $teacher->payments->first()->year;
 
+            $central_amount = (($fees->monthly * 10) / 100);
+            $campus_amount = $fees->monthly - $central_amount;
+
 
             for($i=1 ; $i<=$month ; $i++){
                 $lastMonth ++;
@@ -77,9 +80,20 @@ class HomeController extends Controller
 
                 $payment= new payment;
                 $payment->user_id = $teacher->id;
+                $payment->type = 'campus';
+                $payment->campus_id = $teacher->campus_id;
                 $payment->month = $lastMonth;
                 $payment->year = $lastYear;
-                $payment->amount = $fees->monthly;
+                $payment->amount = $campus_amount;
+                $payment->save();
+
+                $payment= new payment;
+                $payment->user_id = $teacher->id;
+                $payment->type = 'central';
+                $payment->campus_id = $teacher->campus_id;
+                $payment->month = $lastMonth;
+                $payment->year = $lastYear;
+                $payment->amount = $central_amount;
                 $payment->save();
             }
         }

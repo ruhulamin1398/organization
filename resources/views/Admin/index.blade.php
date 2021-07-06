@@ -51,6 +51,7 @@
                                                 <div class="row">
                                                     <div class="col-md-3">
                                                         <input type="hidden" value="{{ $teacher -> id }}" name="user_id">
+                                                        <input type="hidden" value="{{ $teacher -> campus_id }}" name="campus_id">
                                                         <input class="form-control" type="text" name="amount" placeholder="Amount">
                                                     </div>
                                                     <div class="col-md-3">
