@@ -7,6 +7,7 @@ use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TeacherProfileController;
 use App\Models\Fees;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,10 +22,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::group(['middleware' => ['auth','role:campus_admin']], function () {
+Route::group(['middleware' => ['auth']], function () {
     Route::get('/', function () {
-        return view('welcome');
-    });
+        
+        
+        if( Auth::user()->hasRole('campus_admin')){
+            return redirect(route('admin.dashboard'));
+        } 
+        else if( Auth::user()->hasRole('central_admin')){
+            return redirect(route('admin.dashboard'));
+        } 
+        
+        else if( Auth::user()->hasRole('teacher')){
+            return redirect(route('user.dashboard'));
+        }
+    })->name('index');
 });
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['auth','role:campus_admin']], function () {
@@ -39,7 +51,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['auth','rol
 });
 
 Route::group(['prefix' => 'user', 'as' => 'user.','middleware' => ['auth','role:teacher']], function () {
-    Route::get('dashboard', [TeacherProfileController::class , 'index']);
+    Route::get('dashboard', [TeacherProfileController::class , 'index'])->name('dashboard');
 });
 
 

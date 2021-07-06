@@ -5,7 +5,7 @@
             <a href="#" class="nk-nav-compact nk-quick-nav-icon d-none d-xl-inline-flex" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
         </div>
         <div class="nk-sidebar-brand">
-            <a href="{{ route('admin.dashboard') }}" class="logo-link nk-sidebar-logo">
+            <a href="{{ route('index') }}" class="logo-link nk-sidebar-logo">
                 <img class="logo-light logo-img" src="{{ asset('theme/admin') }}./images/logo.png" srcset="./images/logo2x.png 2x" alt="logo">
                 <img class="logo-dark logo-img" src="{{ asset('theme/admin') }}./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
             </a>
@@ -23,18 +23,19 @@
                             <span class="nk-menu-text">Teacher</span>
                         </a>
                     </li><!-- .nk-menu-item -->
+              
                     <li class="nk-menu-item has-sub">
-                        <a href="{{ route('admin.fees.index') }}" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-users"></em></span>
+                        <a href="#" class="nk-menu-link nk-menu-toggle">
+                            <span class="nk-menu-icon"><em class="icon ni ni-tile-thumb"></em></span>
                             <span class="nk-menu-text">Fees</span>
                         </a>
-                        {{-- <ul class="nk-menu-sub">
+                        <ul class="nk-menu-sub">
                             <li class="nk-menu-item">
-                                <a href="html/user-list-regular.html" class="nk-menu-link"><span class="nk-menu-text">Manage Fees</span></a>
+                            <a href="{{ route('index') }}" class="nk-menu-link"><span class="nk-menu-text">New Fees</span></a>
+                                <a href="{{ route('admin.fees.index') }}" class="nk-menu-link"><span class="nk-menu-text">Manage Fees</span></a>
                             </li>
-                        </ul><!-- .nk-menu-sub --> --}}
-                    </li><!-- .nk-menu-item -->
-                    <li class="nk-menu-item has-sub">
+                        </ul><!-- .nk-menu-sub -->
+                    </li><!-- .nk-menu-item -->   <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle">
                             <span class="nk-menu-icon"><em class="icon ni ni-tile-thumb"></em></span>
                             <span class="nk-menu-text">Notice</span>

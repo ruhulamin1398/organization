@@ -33,7 +33,7 @@
                         <form action="{{ route('admin.teacher') }}" class="form-inline">
                             @csrf
                             <div class="form-group mr-1">
-                                <input type="month" name="month" value="{{old('month')}}" class="form-control">
+                                <input type="month" name="month" value="{{now()->format('Y-m')}}" class="form-control">
                             </div>
                             <div class="form-group mr-1">
                                 <select name="type" id="" value=" {{old('month')}} "class="form-control">
