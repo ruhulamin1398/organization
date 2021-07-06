@@ -16,6 +16,7 @@ class CreateCentralsTable extends Migration
         Schema::create('centrals', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('admin_id');
+            $table->unsignedBigInteger('campus_id');
             $table->integer('amount');
             $table->timestamps();
         });
