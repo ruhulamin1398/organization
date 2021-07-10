@@ -14,8 +14,12 @@ class CommitteController extends Controller
      */
     public function index()
     {
-        $committies = Committee::orderBy('position', 'DESC') -> get();
-        return view('Admin.Committee.index', compact('committies'));
+        $secs = Committee::orderBy('position', 'DESC') -> where('campus_id', 1) -> get();
+        $mecs = Committee::orderBy('position', 'DESC') -> where('campus_id', 2) -> get();
+        $fecs = Committee::orderBy('position', 'DESC') -> where('campus_id', 3) -> get();
+        $becs = Committee::orderBy('position', 'DESC') -> where('campus_id', 4) -> get();
+        $centrals = Committee::orderBy('position', 'DESC') -> where('campus_id', 5) -> get();
+        return view('Admin.Committee.index', compact('secs','mecs','fecs','becs','centrals'));
     }
 
     /**
