@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Maymonshing Engineering Collage',
-            ],
+            ], 
             [
                 'name' => 'Foridpur Engineering Collage',
             ]
