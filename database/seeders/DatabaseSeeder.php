@@ -32,6 +32,9 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Foridpur Engineering Collage',
+            ],
+            [
+                'name' => 'Borishal Engineering Collage',
             ]
         ]);
 
@@ -57,7 +60,7 @@ class DatabaseSeeder extends Seeder
         // User Seeder Seeder
         DB::table('users')->insert([
             [
-                'campus_id' => 4,
+                'campus_id' => 5,
                 'phone' => \Faker\Factory::create()->phoneNumber,
                 'name' => 'Central Admin',
                 'email' => 'central@gmail.com',
@@ -84,6 +87,13 @@ class DatabaseSeeder extends Seeder
                 'email' => 'fec@gmail.com',
                 'password' => Hash::make(1234),
             ],
+            [
+                'campus_id' => 4,
+                'phone' => \Faker\Factory::create()->phoneNumber,
+                'name' => 'Bec Admin',
+                'email' => 'bec@gmail.com',
+                'password' => Hash::make(1234),
+            ],
             ///////////////////////////////
             [
                 'campus_id' => 1,
@@ -103,6 +113,13 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'campus_id' => 2,
+                'phone' =>\Faker\Factory::create()->phoneNumber,
+                'name' =>\Faker\Factory::create()->name,
+                'email' => \Faker\Factory::create()->email,
+                'password' => Hash::make(1234),
+            ],
+            [
+                'campus_id' => 4,
                 'phone' =>\Faker\Factory::create()->phoneNumber,
                 'name' =>\Faker\Factory::create()->name,
                 'email' => \Faker\Factory::create()->email,
@@ -206,15 +223,16 @@ class DatabaseSeeder extends Seeder
                 'model_type' => 'App\Models\User',
                 'model_id' => 4,
             ],
+            [
+                'role_id' => 2,
+                'model_type' => 'App\Models\User',
+                'model_id' => 5,
+            ],
 
 
             // teachers
 
             [
-                'role_id' => 3,
-                'model_type' => 'App\Models\User',
-                'model_id' => 5,
-            ], [
                 'role_id' => 3,
                 'model_type' => 'App\Models\User',
                 'model_id' => 6,
@@ -262,6 +280,11 @@ class DatabaseSeeder extends Seeder
                 'role_id' => 3,
                 'model_type' => 'App\Models\User',
                 'model_id' => 17,
+            ],
+            [
+                'role_id' => 3,
+                'model_type' => 'App\Models\User',
+                'model_id' => 18,
             ],
         ]);
 

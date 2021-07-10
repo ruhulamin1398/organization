@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Campus extends Model
+class Committee extends Model
 {
     use HasFactory;
     protected $guarded = [];
 
-
-    public function teachers(){
-        return  User::where('campus_id',$this->id) ->where('id','>',5)->get();
+    public function campuses(){
+        return $this -> belongsTo(Campus::class, 'campus_id', 'id');
     }
 }

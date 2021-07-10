@@ -65,20 +65,37 @@
                     </li><!-- .nk-menu-item -->
                 @endrole
                 @role('teacher')
-                <li class="nk-menu-item has-sub">
-                    <a href="#" class="nk-menu-link nk-menu-toggle">
-                        <span class="nk-menu-icon"><em class="icon ni ni-tile-thumb"></em></span>
-                        <span class="nk-menu-text">Payment</span>
-                    </a>
-                    <ul class="nk-menu-sub">
-                        <li class="nk-menu-item">
-                            <a href="{{ route('user.payment') }}" class="nk-menu-link"><span class="nk-menu-text">Pay Fees</span></a>
-                        </li>
-                        <li class="nk-menu-item">
-                            <a href="{{ route('user.payment-list') }}" class="nk-menu-link"><span class="nk-menu-text">Payment List</span></a>
-                        </li>
-                    </ul><!-- .nk-menu-sub -->
-                </li><!-- .nk-menu-item -->
+                    <li class="nk-menu-item has-sub">
+                        <a href="#" class="nk-menu-link nk-menu-toggle">
+                            <span class="nk-menu-icon"><em class="icon ni ni-tile-thumb"></em></span>
+                            <span class="nk-menu-text">Payment</span>
+                        </a>
+                        <ul class="nk-menu-sub">
+                            <li class="nk-menu-item">
+                                <a href="{{ route('user.payment') }}" class="nk-menu-link"><span class="nk-menu-text">Pay Fees</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="{{ route('user.payment-list') }}" class="nk-menu-link"><span class="nk-menu-text">Payment List</span></a>
+                            </li>
+                        </ul><!-- .nk-menu-sub -->
+                    </li><!-- .nk-menu-item -->
+                @endrole
+
+                @role('central_admin')
+                    <li class="nk-menu-item has-sub">
+                        <a href="#" class="nk-menu-link nk-menu-toggle">
+                            <span class="nk-menu-icon"><em class="icon ni ni-tile-thumb"></em></span>
+                            <span class="nk-menu-text">Committee</span>
+                        </a>
+                        <ul class="nk-menu-sub">
+                            <li class="nk-menu-item">
+                                <a href="{{ route('central.commitee.create') }}" class="nk-menu-link"><span class="nk-menu-text">Add Committee</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="{{ route('central.commitee.index') }}" class="nk-menu-link"><span class="nk-menu-text">Manage Committee</span></a>
+                            </li>
+                        </ul><!-- .nk-menu-sub -->
+                    </li><!-- .nk-menu-item -->
                 @endrole
                 </ul><!-- .nk-menu -->
             </div><!-- .nk-sidebar-menu -->
