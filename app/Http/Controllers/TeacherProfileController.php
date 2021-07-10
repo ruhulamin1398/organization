@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Notice;
 use App\Models\Billing;
 use App\Models\payment;
+use App\Models\TeacherPayment;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,5 +29,44 @@ class TeacherProfileController extends Controller
 
 
         return view('Admin.TeacherProfile.index', compact('notices', 'billings', 'monthArray'));
+    }
+
+    // Teacher Payment Create
+
+    public function create(){
+        return view('Admin.TeacherProfile.create');
+    }
+
+
+    // Teacher Payment Create
+
+    public function store(Request $request){
+        $teacher = Auth::user();
+        $request -> validate([
+            't_number' => 'required',
+            'amount' => 'required',
+        ],[
+            'amount.required' => 'Amount must not be empty!',
+            't_number.required' => 'Transection number must not be empty!',
+        ]);
+
+        TeacherPayment::create([
+            'teacher_id' => $teacher -> id,
+            'campus_id' => $teacher -> campus_id,
+            'name' => $teacher -> name,
+            'phone' => $teacher -> phone,
+            'transection_number' => $request -> t_number,
+            'amount' => $request -> amount,
+        ]);
+
+        return redirect() -> back() -> with('success', 'Payment Added Successfull!');
+    }
+
+    // Teacher Payment Create
+
+    public function list(){
+        $teacher = Auth::user();
+        $payment_list = TeacherPayment::orderBy('id','DESC') -> where('teacher_id', $teacher -> id) -> get();
+        return view('Admin.TeacherProfile.paymentList', compact('payment_list'));
     }
 }

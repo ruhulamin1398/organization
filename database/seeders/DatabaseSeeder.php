@@ -36,9 +36,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-
-
-        DB::table('roles')->insert( 
+        DB::table('roles')->insert(
             [
                 [
                     'name' => 'central_admin',
