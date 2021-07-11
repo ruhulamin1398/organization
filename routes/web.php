@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\CentralController;
 use App\Http\Controllers\CommitteController;
+use App\Http\Controllers\Frontend\CommiteeController;
 use App\Http\Controllers\FeesController;
+use App\Http\Controllers\Frontend\HomeController as FrontendHomeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\TeacherController;
@@ -21,11 +23,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::group(['middleware' => ['auth','role:campus_admin']], function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
-});
+// Route::group(['middleware' => ['auth','role:campus_admin']], function () {
+//     Route::get('/', function () {
+//         return view('welcome');
+//     });
+// });
+
 // Admin Routes
 Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['auth','role:campus_admin']], function () {
     // Dashboard Controller
@@ -59,3 +62,12 @@ Route::group(['prefix' => 'central', 'as' => 'central.','middleware' => ['auth',
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+// ------------------Frontend Route--------------------
+Route::get('/', [FrontendHomeController::class, 'index']);
+Route::get('central-commitee', [CommiteeController::class, 'central']) -> name('front.central-commitee');
+Route::get('sec-commitee', [CommiteeController::class, 'sec']) -> name('front.sec-commitee');
+Route::get('mec-commitee', [CommiteeController::class, 'mec']) -> name('front.mec-commitee');
+Route::get('fec-commitee', [CommiteeController::class, 'fec']) -> name('front.fec-commitee');
+Route::get('bec-commitee', [CommiteeController::class, 'bec']) -> name('front.bec-commitee');
