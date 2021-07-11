@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CentralController;
 use App\Http\Controllers\CommitteController;
+use App\Http\Controllers\Frontend\CommiteeController;
 use App\Http\Controllers\FeesController;
 use App\Http\Controllers\Frontend\HomeController as FrontendHomeController;
 use App\Http\Controllers\HomeController;
@@ -65,3 +66,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 // ------------------Frontend Route--------------------
 Route::get('/', [FrontendHomeController::class, 'index']);
+Route::get('central-commitee', [CommiteeController::class, 'central']) -> name('front.central-commitee');
+Route::get('sec-commitee', [CommiteeController::class, 'sec']) -> name('front.sec-commitee');
+Route::get('mec-commitee', [CommiteeController::class, 'mec']) -> name('front.mec-commitee');
+Route::get('fec-commitee', [CommiteeController::class, 'fec']) -> name('front.fec-commitee');
+Route::get('bec-commitee', [CommiteeController::class, 'bec']) -> name('front.bec-commitee');

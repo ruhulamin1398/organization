@@ -43,8 +43,7 @@
     @include('Inc.header')
   <!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
-    @include('Inc.hero')
+
 
     @yield('content')
 

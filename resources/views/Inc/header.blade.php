@@ -10,13 +10,13 @@
           <li class="active"><a href="index.html">Home</a></li>
           <li><a href="#services">Notice</a></li>
           <li><a href="#portfolio">About</a></li>
-          <li class="drop-down"><a href="">Commitee</a>
+          <li class="drop-down"><a >Commitee</a>
             <ul>
-              <li><a href="#">Central Commitee</a></li>
-              <li><a href="#">SEC Commitee</a></li>
-              <li><a href="#">MEC Commitee</a></li>
-              <li><a href="#">FEC Commitee</a></li>
-              <li><a href="#">BEC Commitee</a></li>
+              <li><a href="{{ route('front.central-commitee') }}">Central Commitee</a></li>
+              <li><a href="{{ route('front.sec-commitee') }}">SEC Commitee</a></li>
+              <li><a href="{{ route('front.mec-commitee') }}">MEC Commitee</a></li>
+              <li><a href="{{ route('front.fec-commitee') }}">FEC Commitee</a></li>
+              <li><a href="{{ route('front.bec-commitee') }}">BEC Commitee</a></li>
             </ul>
           </li>
         </ul>
