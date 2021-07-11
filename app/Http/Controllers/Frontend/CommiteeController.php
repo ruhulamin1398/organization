@@ -4,22 +4,28 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Committee;
 
 class CommiteeController extends Controller
 {
     public function central(){
-        return view('centralCommitee');
+        $centrals = Committee::orderBy('position', 'ASC') -> where('campus_id',5) -> get();
+        return view('centralCommitee', compact('centrals'));
     }
     public function sec(){
-        return view('secCommitee');
+        $secs = Committee::orderBy('position', 'ASC') -> where('campus_id',1) -> get();
+        return view('secCommitee', compact('secs'));
     }
     public function mec(){
-        return view('mecCommitee');
+        $mecs = Committee::orderBy('position', 'ASC') -> where('campus_id',2) -> get();
+        return view('mecCommitee', compact('mecs'));
     }
     public function fec(){
-        return view('fecCommitee');
+        $fecs = Committee::orderBy('position', 'ASC') -> where('campus_id',3) -> get();
+        return view('fecCommitee', compact('fecs'));
     }
     public function bec(){
-        return view('becCommitee');
+        $becs = Committee::orderBy('position', 'ASC') -> where('campus_id',4) -> get();
+        return view('becCommitee', compact('becs'));
     }
 }
