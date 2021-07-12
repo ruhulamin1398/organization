@@ -13,18 +13,14 @@ class HomeController extends Controller
 {
     public function index(){
         $campuses = Campus::all();
-        $campus_count = Campus::all()->count();
-        $teacher_count = User::where('id', '>', '6') -> get() -> count();
-        $admin_count = User::where('id', '<', '6') -> get() -> count();
-        $commitee_count = Committee::all() -> count();
         $notices = Notice::all() -> take(6);
+        $admins = User::where('id', '<', '6') -> where('id', '>', '1') -> get();
+        $centrals = Committee::orderBy('position', 'ASC') -> where('campus_id',5) -> get();
         return view('index', [
             'campuses' => $campuses,
-            'campus_count' => $campus_count,
-            'teacher_count' => $teacher_count,
-            'admin_count' => $admin_count,
-            'commitee_count' => $commitee_count,
             'notices' => $notices,
+            'admins' => $admins,
+            'centrals' => $centrals,
         ]);
     }
 }
