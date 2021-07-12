@@ -1,7 +1,17 @@
 @extends('app')
 
 @section('title', 'Home - Organization')
-
+@section('css')
+<style>
+  .flex.justify-between.flex-1.sm\:hidden {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.relative.z-0.inline-flex.shadow-sm.rounded-md {
+	display: none !important;
+}
+</style>
+@endsection
 @section('content')
 
   <main id="main">
@@ -36,7 +46,7 @@
                         <tr>
                             <th style="width: 5%">#</th>
                             <th style="width: 15%">Title</th>
-                            <th style="width: 45%">Description</th>
+                            <th   class="d-none d-md-block" style="width: 45%">Description</th>
                             <th style="width: 20%">Campus</th>
                             <th style="width: 15%">File</th>
                         </tr>
@@ -46,7 +56,7 @@
                             <tr>
                                 <th>{{ $loop -> index + 1 }}</th>
                                 <td>{{ $notice -> title }}</td>
-                                <td>{{ $notice -> description }}</td>
+                                <td class="d-none d-md-block">{{ $notice -> description }}</td>
                                 <td>{{ $notice -> campus -> name }}</td>
                                 <td>
                                     <a class="btn btn-sm btn-success" href="{{ asset('images/notices/'. $notice -> file) }}">Download</a>
