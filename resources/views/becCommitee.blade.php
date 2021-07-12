@@ -6,23 +6,8 @@
 
   <main id="main">
 
-    <!-- ======= Breadcrumbs ======= -->
-    <section class="breadcrumbs">
-      <div class="container">
-
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>BEC Commitee</h2>
-          <ol>
-            <li><a href="{{ url('/') }}">Home</a></li>
-            <li>BEC Commitee</li>
-          </ol>
-        </div>
-
-      </div>
-    </section><!-- End Breadcrumbs -->
-
     <!-- ======= Team Section ======= -->
-    <section id="team" class="team section-bg">
+    <section id="team" class="mt-5 team section-bg">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
@@ -44,9 +29,8 @@
                             </div>
                         </div>
                         <div class="member-info">
+                            <h4 class="text-dark" style="font-size: 24px">{{ $bec -> designation }}</h4>
                             <h4>{{ $bec -> name }}</h4>
-                            <span>{{ $bec -> designation }}</span>
-                            <p>{{ $bec -> session }}</p>
                         </div>
                     </div>
                 </div>

@@ -49,6 +49,27 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="default-01">Payment Type</label>
+                                    <div class="form-control-wrap">
+                                        <select name="type" id="" class="form-control">
+                                            <option value="Monthly">Monthly</option>
+                                            <option value="Others">Others</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="default-01">Comment</label>
+                                    <div class="form-control-wrap">
+                                        <input class="form-control" type="text" name="comment" class="form-control" placeholder="Comment">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <br>
                        <div class="row">
                            <div class="col">

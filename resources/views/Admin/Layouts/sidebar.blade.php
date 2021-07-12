@@ -11,6 +11,12 @@
                     <img class="logo-dark logo-img" src="{{ asset('theme/admin') }}./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
                 </a>
             @endrole
+            @role('teacher')
+                <a href="{{ route('user.dashboard') }}" class="logo-link nk-sidebar-logo">
+                    <img class="logo-light logo-img" src="{{ asset('theme/admin') }}./images/logo.png" srcset="./images/logo2x.png 2x" alt="logo">
+                    <img class="logo-dark logo-img" src="{{ asset('theme/admin') }}./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+                </a>
+            @endrole
         </div>
     </div><!-- .nk-sidebar-element -->
     <div class="nk-sidebar-element nk-sidebar-body">
@@ -97,6 +103,12 @@
                                 <a href="{{ route('central.commitee.index') }}" class="nk-menu-link"><span class="nk-menu-text">Manage Committee</span></a>
                             </li>
                         </ul><!-- .nk-menu-sub -->
+                    </li><!-- .nk-menu-item -->
+                    <li class="nk-menu-item">
+                        <a href="{{ route('central.fee') }}" class="nk-menu-link">
+                            <span class="nk-menu-icon"><em class="icon ni ni-tile-thumb"></em></span>
+                            <span class="nk-menu-text">Central Fee</span>
+                        </a>
                     </li><!-- .nk-menu-item -->
                 @endrole
                 </ul><!-- .nk-menu -->

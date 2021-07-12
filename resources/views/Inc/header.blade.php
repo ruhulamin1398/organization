@@ -7,13 +7,13 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="{{ url('/#notice') }}">Notice</a></li>
           <li><a href="{{ url('/#about') }}">About</a></li>
           <li><a href="{{ route('front.central-commitee') }}">Central</a></li>
           <li><a href="{{ route('front.sec-commitee') }}">SEC</a></li>
           <li><a href="{{ route('front.mec-commitee') }}">MEC</a></li>
           <li><a href="{{ route('front.fec-commitee') }}">FEC</a></li>
           <li><a href="{{ route('front.bec-commitee') }}">BEC</a></li>
+          <li><a href="{{ url('/#notice') }}">Notice</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 

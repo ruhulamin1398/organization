@@ -44,4 +44,10 @@ class CentralController extends Controller
 
         return redirect() -> back() -> with('success', 'Central Payment Added Successfull!');
     }
+
+    // Central Fee
+    public function feeShow(){
+        $fees = Central::all();
+        return view('Admin.CentralFee.index', compact('fees'));
+    }
 }
