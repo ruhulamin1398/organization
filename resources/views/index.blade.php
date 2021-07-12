@@ -8,12 +8,12 @@
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
       <div class="row justify-content-center">
         <div class="col-xl-7 col-lg-9 text-center">
-          <h1>One Page Bootstrap Website Template</h1>
+          <h1>Welcome To Our Organization</h1>
           <h2>We are team of talented designers</h2>
         </div>
       </div>
       <div class="text-center">
-        <a href="#about" class="btn-get-started scrollto">Get Started</a>
+        <a href="{{ url('/#notice') }}" class="btn-get-started scrollto">Notice</a>
       </div>
 
 </section><!-- End Hero -->
@@ -64,18 +64,18 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Campus</th>
-                        <th>File</th>
+                        <th style="width: 5%">#</th>
+                        <th style="width: 15%">Title</th>
+                        <th style="width: 45%">Description</th>
+                        <th style="width: 20%">Campus</th>
+                        <th style="width: 15%">File</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($notices as $notice)
                         <tr>
                             <th>{{ $loop -> index + 1 }}</th>
-                            <th>{{ $notice -> title }}</th>
+                            <td>{{ $notice -> title }}</td>
                             <td>{{ $notice -> description }}</td>
                             <td>{{ $notice -> campus -> name }}</td>
                             <td>
@@ -85,19 +85,25 @@
                     @endforeach
                 </tbody>
             </table>
+
+            {{-- {{ $notices->links() }} --}}
         </div>
+
+       <div class="text-center mt-3">
+         <a href="{{ route('front.notice') }}" class="btn btn-primary">MORE NOTICE</a>
+       </div>
 
       </div>
     </section><!-- End Sevices Section -->
 
     <!-- ======= Team Section ======= -->
-    <section id="team" class="team section-bg">
+    <section id="team" class="team" style="background: #fff">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title mb-3">
-            <h2>Central Commitee</h2>
+            <h2>Our Commitee</h2>
             <p class="mb-5">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-            <a class="btn btn-primary btn-sm" href="{{ route('front.central-commitee') }}">Sentral Commitee</a>
+            <a class="btn btn-primary btn-sm" href="{{ route('front.central-commitee') }}">Central Commitee</a>
             <a class="btn btn-primary btn-sm" href="{{ route('front.sec-commitee') }}">Sec Commitee</a>
             <a class="btn btn-primary btn-sm" href="{{ route('front.mec-commitee') }}">Mec Commitee</a>
             <a class="btn btn-primary btn-sm" href="{{ route('front.fec-commitee') }}">Fec Commitee</a>
