@@ -25,8 +25,8 @@ class CommitteeFactory extends Factory
             'campus_id' => $this -> faker -> numberBetween($min = 1, $max = 5),
             'name' => $this -> faker -> name(),
             'position' => $this -> faker -> numberBetween($min = 1, $max = 20),
-            'designation' => $this -> faker -> sentence(10),
-            'session' => $this -> faker -> year(),
+            'designation' => $this -> faker -> sentence(2),
+            'session' =>' 2020 -  2022',
         ];
     }
 }

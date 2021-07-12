@@ -10,6 +10,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TeacherProfileController;
+use Illuminate\Auth\Events\Authenticated;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +33,23 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // Admin Routes
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/user-redirect', function () {
+        
+        
+        if( Auth::user()->hasRole('campus_admin')){
+            return redirect(route('admin.dashboard'));
+        } 
+        else if( Auth::user()->hasRole('central_admin')){
+            return redirect(route('central.commitee.create'));
+        } 
+        
+        else if( Auth::user()->hasRole('teacher')){
+            return redirect(route('user.dashboard'));
+        }
+    })->name('index');
+});
 Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['auth','role:campus_admin']], function () {
     // Dashboard Controller
     Route::get('dashboard', [HomeController::class, 'index']) -> name('dashboard');
@@ -49,7 +68,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['auth','rol
 });
 // User Rote
 Route::group(['prefix' => 'user', 'as' => 'user.','middleware' => ['auth','role:teacher']], function () {
-    Route::get('dashboard', [TeacherProfileController::class , 'index']);
+    Route::get('dashboard', [TeacherProfileController::class , 'index'])->name('dashboard');
     Route::get('payment', [TeacherProfileController::class , 'create'])->name('payment');
     Route::post('payment/store', [TeacherProfileController::class , 'store']) -> name('payment-store');
     Route::get('payment/list', [TeacherProfileController::class , 'list']) -> name('payment-list');

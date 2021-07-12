@@ -66,7 +66,7 @@
                     <tr>
                         <th style="width: 5%">#</th>
                         <th style="width: 15%">Title</th>
-                        <th style="width: 45%">Description</th>
+                        <th class="d-none d-md-block" style="width: 45%">Description</th>
                         <th style="width: 20%">Campus</th>
                         <th style="width: 15%">File</th>
                     </tr>
@@ -74,11 +74,11 @@
                 <tbody>
                     @foreach ($notices as $notice)
                         <tr>
-                            <th>{{ $loop -> index + 1 }}</th>
-                            <td>{{ $notice -> title }}</td>
-                            <td>{{ $notice -> description }}</td>
-                            <td>{{ $notice -> campus -> name }}</td>
-                            <td>
+                            <th class="small">{{ $loop -> index + 1 }}</th>
+                            <td class="small">{{ $notice -> title }}</td>
+                            <td class="d-none d-md-block small" >{{ $notice -> description }}</td>
+                            <td class="small">{{ $notice -> campus -> name }}</td>
+                            <td class="small">
                                 <a class="btn btn-sm btn-success" href="{{ asset('images/notices/'. $notice -> file) }}">Download</a>
                             </td>
                         </tr>
