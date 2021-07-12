@@ -13,7 +13,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2>MEC Commitee</h2>
           <ol>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="{{ url('/') }}">Home</a></li>
             <li>MEC Commitee</li>
           </ol>
         </div>

@@ -13,7 +13,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2>FEC Commitee</h2>
           <ol>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="{{ url('/') }}">Home</a></li>
             <li>FEC Commitee</li>
           </ol>
         </div>

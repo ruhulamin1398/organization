@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
         $this -> call([
             PaymentSeeder::class,
             FeesSeeder::class,
+            NoticeSeeder::class,
+            CommitteeSeeder::class,
         ]);
 
         // Campus Seeder

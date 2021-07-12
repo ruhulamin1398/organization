@@ -5,6 +5,7 @@ use App\Http\Controllers\CommitteController;
 use App\Http\Controllers\Frontend\CommiteeController;
 use App\Http\Controllers\FeesController;
 use App\Http\Controllers\Frontend\HomeController as FrontendHomeController;
+use App\Http\Controllers\Frontend\NoticeController as FrontendNoticeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\TeacherController;
@@ -71,3 +72,4 @@ Route::get('sec-commitee', [CommiteeController::class, 'sec']) -> name('front.se
 Route::get('mec-commitee', [CommiteeController::class, 'mec']) -> name('front.mec-commitee');
 Route::get('fec-commitee', [CommiteeController::class, 'fec']) -> name('front.fec-commitee');
 Route::get('bec-commitee', [CommiteeController::class, 'bec']) -> name('front.bec-commitee');
+Route::get('notice', [FrontendNoticeController::class, 'index']) -> name('front.notice');
