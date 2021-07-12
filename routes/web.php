@@ -36,15 +36,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/user-redirect', function () {
-        
-        
+
+
         if( Auth::user()->hasRole('campus_admin')){
             return redirect(route('admin.dashboard'));
-        } 
+        }
         else if( Auth::user()->hasRole('central_admin')){
             return redirect(route('central.commitee.create'));
-        } 
-        
+        }
+
         else if( Auth::user()->hasRole('teacher')){
             return redirect(route('user.dashboard'));
         }
@@ -75,6 +75,7 @@ Route::group(['prefix' => 'user', 'as' => 'user.','middleware' => ['auth','role:
 });
 // Central Rote
 Route::group(['prefix' => 'central', 'as' => 'central.','middleware' => ['auth','role:central_admin']], function () {
+    Route::get('fee', [CentralController::class, 'feeShow']) -> name('fee');
     Route::resource('commitee', CommitteController::class);
 });
 

@@ -45,9 +45,13 @@ class TeacherProfileController extends Controller
         $request -> validate([
             't_number' => 'required',
             'amount' => 'required',
+            'type' => 'required',
+            'comment' => 'required',
         ],[
             'amount.required' => 'Amount must not be empty!',
             't_number.required' => 'Transection number must not be empty!',
+            'type.required' => 'Payment type must not be empty!',
+            'comment.required' => 'Comment must not be empty!',
         ]);
 
         TeacherPayment::create([
@@ -57,6 +61,8 @@ class TeacherProfileController extends Controller
             'phone' => $teacher -> phone,
             'transection_number' => $request -> t_number,
             'amount' => $request -> amount,
+            'type' => $request -> type,
+            'comment' => $request -> comment,
         ]);
 
         return redirect() -> back() -> with('success', 'Payment Added Successfull!');

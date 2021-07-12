@@ -21,6 +21,8 @@ class CreateTeacherPaymentsTable extends Migration
             $table->string('phone');
             $table->string('transection_number');
             $table->string('amount');
+            $table->string('type');
+            $table->string('comment');
             $table->string('status') -> default('pending');
             $table->timestamps();
         });

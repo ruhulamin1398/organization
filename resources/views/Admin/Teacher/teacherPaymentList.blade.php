@@ -13,7 +13,7 @@
 <div class="nk-block-head nk-block-head-sm">
     <div class="nk-block-between">
         <div class="nk-block-head-content">
-            <h3 class="nk-block-title page-title">Teacher Payment List</h3>
+            <h3 class="nk-block-title page-title">Teacher Payment Request</h3>
             {{-- <div class="nk-block-des text-soft">
                 <p>Welcome to DashLite Dashboard Template.</p>
             </div> --}}
@@ -35,9 +35,10 @@
                                 <tr>
                                     <th>SL</th>
                                     <th>Name</th>
-                                    <th>Phone</th>
                                     <th>Transection Number</th>
                                     <th>Amount</th>
+                                    <th>Type</th>
+                                    <th>Comment</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -47,9 +48,10 @@
                                     <tr>
                                         <th>{{ $loop -> index + 1 }}</th>
                                         <td>{{ $pay -> name }}</td>
-                                        <td>{{ $pay -> phone }}</td>
                                         <td>{{ $pay -> transection_number }}</td>
                                         <td>{{ $pay -> amount }}</td>
+                                        <td>{{ $pay -> type }}</td>
+                                        <td>{{ $pay -> comment }}</td>
                                         <td>
                                             @if ($pay -> status == 'accepted')
                                                 <span class="badge badge-success">{{ $pay -> status }}</span>
