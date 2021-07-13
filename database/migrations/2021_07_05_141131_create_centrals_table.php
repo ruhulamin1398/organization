@@ -17,7 +17,11 @@ class CreateCentralsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('admin_id');
             $table->unsignedBigInteger('campus_id');
+            $table->string('t_number');
             $table->integer('amount');
+            $table->string('central_comment') -> nullable();
+            $table->string('admin_comment') -> nullable();
+            $table->string('status') -> default('pending');
             $table->timestamps();
         });
     }

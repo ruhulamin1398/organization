@@ -58,12 +58,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['auth','rol
     // Teacher Routes
     Route::get('teacher', [TeacherController::class, 'index']) -> name('teacher');
     Route::get('teacher/payment-list', [TeacherController::class, 'paymentList']) -> name('teacher-payment-list');
-    Route::get('teacher/accepted/{id}', [TeacherController::class, 'accepted']) -> name('teacher-payment-accepted');
-    Route::get('teacher/rejected/{id}', [TeacherController::class, 'rejected']) -> name('teacher-payment-rejected');
+    // Route::get('teacher/accepted/{id}', [TeacherController::class, 'accepted']) -> name('teacher-payment-accepted');
+    // Route::get('teacher/rejected/{id}', [TeacherController::class, 'rejected']) -> name('teacher-payment-rejected');
+    Route::post('teacher/payment/update/{id}', [TeacherController::class, 'teacherPaymentUpdate']) -> name('payment.update');
     // Notice Routes
     Route::resource('notice', NoticeController::class);
     // Central Routes
-    Route::get('central', [CentralController::class, 'create']) -> name('central-create');
+    Route::get('central/index', [CentralController::class, 'index']) -> name('central-index');
+    Route::get('central', [CentralController::class, 'showDeu']) -> name('central-create');
     Route::post('central/store', [CentralController::class, 'store']) -> name('central-store');
 });
 // User Rote
@@ -73,9 +75,11 @@ Route::group(['prefix' => 'user', 'as' => 'user.','middleware' => ['auth','role:
     Route::post('payment/store', [TeacherProfileController::class , 'store']) -> name('payment-store');
     Route::get('payment/list', [TeacherProfileController::class , 'list']) -> name('payment-list');
 });
+
 // Central Rote
 Route::group(['prefix' => 'central', 'as' => 'central.','middleware' => ['auth','role:central_admin']], function () {
     Route::get('fee', [CentralController::class, 'feeShow']) -> name('fee');
+    Route::post('fee/update/{id}', [CentralController::class, 'update']) -> name('fee-update');
     Route::resource('commitee', CommitteController::class);
 });
 
