@@ -90,19 +90,28 @@ class TeacherController extends Controller
     }
 
     // Updata payment Status
-    public function accepted($id){
-        $payment = TeacherPayment::find(($id));
-        $payment -> update([
-            'status' => 'accepted',
-        ]);
+    // public function accepted($id){
+    //     $payment = TeacherPayment::find(($id));
+    //     $payment -> update([
+    //         'status' => 'accepted',
+    //     ]);
 
-        return redirect() -> back() -> with('success', 'Payment was Status Accepted');
-    }
-    public function rejected($id){
-        $payment = TeacherPayment::find(($id));
+    //     return redirect() -> back() -> with('success', 'Payment was Status Accepted');
+    // }
+    // public function rejected($id){
+    //     $payment = TeacherPayment::find(($id));
+    //     $payment -> update([
+    //         'status' => 'rejected',
+    //     ]);
+    //     return redirect() -> back() -> with('success', 'Payment was Status Rejected');
+    // }
+
+    public function teacherPaymentUpdate(Request $request, $id){
+        $payment = TeacherPayment::find($id);
         $payment -> update([
-            'status' => 'rejected',
+            'admin_comment' => $request -> comment,
+            'status' => $request -> status,
         ]);
-        return redirect() -> back() -> with('success', 'Payment was Status Rejected');
+        return redirect() -> back() -> with('success', 'Teacher payment updated successfull');
     }
 }

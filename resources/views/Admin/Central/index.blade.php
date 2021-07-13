@@ -13,7 +13,7 @@
 <div class="nk-block-head nk-block-head-sm">
     <div class="nk-block-between">
         <div class="nk-block-head-content">
-            <h3 class="nk-block-title page-title">{{ Auth::user()->name }} Payment Details</h3>
+            <h3 class="nk-block-title page-title">Central Fee Payment Request</h3>
             {{-- <div class="nk-block-des text-soft">
                 <p>Welcome to DashLite Dashboard Template.</p>
             </div> --}}
@@ -29,51 +29,45 @@
 
             <div class="card card-preview">
                 <div class="card-inner">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h5>Payment List</h5>
-                        </div>
-                        <div class="col-md-6"></div>
-                    </div>
                     <div class="datatable-wrap my-3">
-                        <table class=" table ">
+                        <table class="datatable-init table ">
                             <thead>
                                 <tr>
                                     <th>SL</th>
                                     <th>Transection Number</th>
                                     <th>Amount</th>
-                                    <th>Status</th>
+                                    <th>Status</th> 
                                     <th>Admin Comment</th>
-                                    <th>Date</th>
+                                    <th>Payment Date</th>
                                     <th>Updated Date</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($payment_list as $list)
+                                @foreach ($payment_request as $payment)
                                    <tr>
                                         <th>{{ $loop -> index + 1 }}</th>
-                                        <td>{{ $list -> transection_number }}</td>
-                                        <td>{{ $list -> amount }}</td>
+                                        <td>{{ $payment -> t_number }}</td>
+                                        <td>{{ $payment -> amount }}</td>
                                         <td>
-                                            @if ($list -> status == 'accepted')
-                                                <span class="badge badge-success">{{ $list -> status }}</span>
-                                            @elseif($list -> status == 'rejected')
-                                                 <span class="badge badge-danger">{{ $list -> status }}</span>
+                                            @if ($payment -> status == 'accepted')
+                                                <span class="badge badge-success">{{ $payment -> status }}</span>
+                                            @elseif($payment -> status == 'rejected')
+                                                 <span class="badge badge-danger">{{ $payment -> status }}</span>
                                             @else
-                                                <span class="badge badge-warning">{{ $list -> status }}</span>
+                                                <span class="badge badge-warning">{{ $payment -> status }}</span>
                                             @endif
 
                                         </td>
                                         <td>
-                                            @if ($list -> admin_comment)
-                                                <span>{{ $list -> admin_comment }}</span>
+                                            @if ($payment -> central_comment)
+                                                <span>{{ $payment -> central_comment }}</span>
                                             @else
                                                 <span>--</span>
                                             @endif
 
                                         </td>
-                                        <td>{{ date('F m, Y', strtotime($list -> created_at)) }}</td>
-                                        <td>{{ date('F m, Y', strtotime($list -> updated_at)) }}</td>
+                                        <td>{{ date('F m, Y', strtotime($payment -> created_at)) }}</td>
+                                        <td>{{ date('F m, Y', strtotime($payment -> updated_at)) }}</td>
                                    </tr>
                                 @endforeach
                             </tbody>
@@ -81,7 +75,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+
+
+
         </div><!-- .col -->
     </div><!-- .row -->
 </div><!-- .nk-block -->

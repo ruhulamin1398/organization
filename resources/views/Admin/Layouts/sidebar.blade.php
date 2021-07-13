@@ -33,7 +33,7 @@
                         <ul class="nk-menu-sub">
                             <li class="nk-menu-item">
                                 <a href="{{ route('admin.teacher') }}" class="nk-menu-link"><span class="nk-menu-text">Teacher List</span></a>
-                                <a href="{{ route('admin.teacher-payment-list') }}" class="nk-menu-link"><span class="nk-menu-text">Teacher Payment List</span></a>
+                                <a href="{{ route('admin.teacher-payment-list') }}" class="nk-menu-link"><span class="nk-menu-text">Teacher Payment Request</span></a>
                             </li>
                         </ul><!-- .nk-menu-sub -->
                     </li><!-- .nk-menu-item -->
@@ -68,6 +68,9 @@
                         <ul class="nk-menu-sub">
                             <li class="nk-menu-item">
                                 <a href="{{ route('admin.central-create') }}" class="nk-menu-link"><span class="nk-menu-text">Pay Fees</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="{{ route('admin.central-index') }}" class="nk-menu-link"><span class="nk-menu-text">Payment Request</span></a>
                             </li>
                         </ul><!-- .nk-menu-sub -->
                     </li><!-- .nk-menu-item -->
@@ -107,7 +110,7 @@
                     <li class="nk-menu-item">
                         <a href="{{ route('central.fee') }}" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-tile-thumb"></em></span>
-                            <span class="nk-menu-text">Central Fee</span>
+                            <span class="nk-menu-text">Payment Request</span>
                         </a>
                     </li><!-- .nk-menu-item -->
                 @endrole

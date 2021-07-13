@@ -33,9 +33,7 @@
                         <table class=" table ">
                             <thead>
                                 <tr>
-                                    <th>SL</th>
                                     <th>Name</th>
-                                    <th>Transection Number</th>
                                     <th>Amount</th>
                                     <th>Type</th>
                                     <th>Comment</th>
@@ -46,9 +44,7 @@
                             <tbody>
                                 @foreach ($payments as $pay)
                                     <tr>
-                                        <th>{{ $loop -> index + 1 }}</th>
                                         <td>{{ $pay -> name }}</td>
-                                        <td>{{ $pay -> transection_number }}</td>
                                         <td>{{ $pay -> amount }}</td>
                                         <td>{{ $pay -> type }}</td>
                                         <td>{{ $pay -> comment }}</td>
@@ -63,8 +59,26 @@
 
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.teacher-payment-accepted', $pay -> id)  }}" class="btn btn-success btn-sm">Accept</a>
-                                            <a href="{{ route('admin.teacher-payment-rejected', $pay -> id) }}" class="btn btn-danger btn-sm">Reject</a>
+                                            {{-- <a href="{{ route('admin.teacher-payment-accepted', $pay -> id)  }}" class="btn btn-success btn-sm">Accept</a>
+                                            <a href="{{ route('admin.teacher-payment-rejected', $pay -> id) }}" class="btn btn-danger btn-sm">Reject</a> --}}
+                                            <form action="{{ route('admin.payment.update', $pay -> id) }}" method="POST">
+                                                @csrf
+                                               <div class="row">
+                                                    <div class="col-md-6">
+                                                        <input type="text" placeholder="Comment" name="comment" class="form-control">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <select name="status" id="" class="form-control">
+                                                            <option value="accepted">Accepted</option>
+                                                            <option value="rejected">Rejected</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <input type="submit" class="btn btn-sm btn-primary">
+                                                    </div>
+                                               </div>
+                                            </form>
+
                                         </td>
                                     </tr>
                                 @endforeach
@@ -77,5 +91,38 @@
         </div><!-- .col -->
     </div><!-- .row -->
 </div><!-- .nk-block -->
+{{-- <div class="modal" tabindex="-1" role="dialog" id="modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Payment Request</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="">
+                    <div class="form-group">
+                        <label for="">Comment</label>
+                        <input type="text" name="comment" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Status</label>
+                        <select name="status" id="" class="form-control">
+                            <option value="accepted">Accepted</option>
+                            <option value="accepted">Rejected</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-sm btn-primary">
+                    </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div> --}}
 
 @endsection

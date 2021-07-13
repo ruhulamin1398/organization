@@ -35,9 +35,27 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label class="form-label" for="default-01">Transaction Number</label>
+                                    <div class="form-control-wrap">
+                                        <input type="text" name="t_number" class="form-control" id="default-01" placeholder="Transaction Number">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
                                     <label class="form-label" for="default-01">Amount</label>
                                     <div class="form-control-wrap">
                                         <input type="text" name="amount" class="form-control" id="default-01" placeholder="Amount">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="default-01">Comment</label>
+                                    <div class="form-control-wrap">
+                                        <input type="text" name="comment" class="form-control" id="default-01" placeholder="Comment">
                                     </div>
                                 </div>
                             </div>
