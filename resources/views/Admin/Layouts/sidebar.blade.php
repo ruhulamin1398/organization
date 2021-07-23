@@ -7,14 +7,14 @@
         <div class="nk-sidebar-brand">
             @role('campus_admin')
                 <a href="{{ route('admin.dashboard') }}" class="logo-link nk-sidebar-logo">
-                    <img class="logo-light logo-img" src="{{ asset('theme/admin') }}./images/logo.png" srcset="./images/logo2x.png 2x" alt="logo">
-                    <img class="logo-dark logo-img" src="{{ asset('theme/admin') }}./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+                    <img class="logo-light logo-img" src="{{ asset('theme/admin') }}/images/logo.png" srcset="/images/logo2x.png 2x" alt="logo">
+                    <img class="logo-dark logo-img" src="{{ asset('theme/admin') }}/images/logo-dark.png" srcset="/images/logo-dark2x.png 2x" alt="logo-dark">
                 </a>
             @endrole
             @role('teacher')
                 <a href="{{ route('user.dashboard') }}" class="logo-link nk-sidebar-logo">
-                    <img class="logo-light logo-img" src="{{ asset('theme/admin') }}./images/logo.png" srcset="./images/logo2x.png 2x" alt="logo">
-                    <img class="logo-dark logo-img" src="{{ asset('theme/admin') }}./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+                    <img class="logo-light logo-img" src="{{ asset('theme/admin') }}/images/logo.png" srcset="/images/logo2x.png 2x" alt="logo">
+                    <img class="logo-dark logo-img" src="{{ asset('theme/admin') }}/images/logo-dark.png" srcset="/images/logo-dark2x.png 2x" alt="logo-dark">
                 </a>
             @endrole
         </div>
